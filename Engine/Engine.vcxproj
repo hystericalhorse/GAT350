@@ -211,6 +211,7 @@
     <ClCompile Include="Renderer\Text.cpp" />
     <ClCompile Include="Resource\ResourceManager.cpp" />
     <ClCompile Include="Serialization\JSON.cpp" />
+    <ClCompile Include="ThirdParty\glad\src\glad.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Audio\AudioChannel.h" />

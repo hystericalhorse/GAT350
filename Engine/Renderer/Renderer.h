@@ -1,6 +1,8 @@
 #ifndef _RENDERER_H
 #define _RENDERER_H
 
+#include <SDL.h>
+#include <glad/glad.h>
 #include "Texture.h"
 #include "Math/Vector2.h"
 #include "Math/Color.h"
@@ -31,7 +33,7 @@ namespace en
 		void Draw(std::shared_ptr<Texture> texture, const Rect& source, const Transform& transform, const Vector2& regist = Vector2{ .5, .5 }, bool flipH = false);
 		void Draw2(std::shared_ptr<Texture> texture, const Rect& source, const Transform& transform, const Vector2& regist = Vector2{ .5, .5 }, bool flipH = false);
 
-		void newWindow(const char* title, int width, int height);
+		void newWindow(const char* title, int width, int height, bool fullscreen = false);
 		void beginFrame();
 		void endFrame();
 		void setClearColor(const Color& color) { _clearcolor = color; }
@@ -65,6 +67,7 @@ namespace en
 		int width = 0;
 		int height = 0;
 
+		SDL_GLContext _context;
 		Color _clearcolor{0, 0, 0, 255};
 	};
 }

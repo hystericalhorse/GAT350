@@ -6,6 +6,7 @@
 #include <SDL_ttf.h>
 
 #include <iostream>
+#include <SDL_image.h>
 
 namespace en
 {
@@ -21,10 +22,11 @@ namespace en
 
 	void Renderer::Shutdown()
 	{
-		SDL_DestroyRenderer(_renderer);
+		SDL_GL_DeleteContext(_context);
 		SDL_DestroyWindow(_window);
 
 		TTF_Quit();
+		IMG_Quit();
 	}
 
 	void Renderer::Draw(std::shared_ptr<en::Texture> texture, const Vector2& position, float angle, const Vector2& scale, const Vector2& regist)
@@ -125,24 +127,38 @@ namespace en
 		SDL_RenderCopyEx(_renderer, texture->_texture, &src, &dest, transform.rotation, &center, sdl_flip);
 	}
 
-	void Renderer::newWindow(const char* title, int width, int height)
+	void Renderer::newWindow(const char* title, int width, int height, bool fullscreen)
 	{
 		this->width = width;
 		this->height = height;
+		int flags = (fullscreen) ? SDL_WINDOW_FULLSCREEN : (SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);
 
-		_window = SDL_CreateWindow(title, 100, 100, width, height, SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);
-		_renderer = SDL_CreateRenderer(_window, -1, SDL_RENDERER_PRESENTVSYNC | SDL_RENDERER_ACCELERATED);
+		_window = SDL_CreateWindow(title, 100, 100, width, height, SDL_WINDOW_OPENGL | flags);
+
+		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 4);
+		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
+		SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_COMPATIBILITY);
+
+		SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
+		SDL_GL_SetAttribute(SDL_GL_ACCELERATED_VISUAL, 1);
+		SDL_GL_SetSwapInterval(1);
+
+		_context = SDL_GL_CreateContext(_window);
+		gladLoadGL();
+
+		glViewport(0, 0, width, height);
+		glEnable(GL_DEPTH_TEST);
 	}
 
 	void Renderer::beginFrame()
 	{
-		SDL_SetRenderDrawColor(_renderer, _clearcolor.r, _clearcolor.g, _clearcolor.b, _clearcolor.a);
-		SDL_RenderClear(_renderer);
+		glClearColor(0.53f, 0.81f, 0.98f, 1);
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	}
 
 	void Renderer::endFrame()
 	{
-		SDL_RenderPresent(_renderer);
+		SDL_GL_SwapWindow(_window);
 	}
 
 	void Renderer::drawLine(float x1, float y1, float x2, float y2, const Color& color)
