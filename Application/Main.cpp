@@ -1,9 +1,18 @@
 #include "Engine.h"
 #include <iostream>
 
+float points[] =
+{
+	-0.5f,  0.5f,  0.0f,
+	 0.0f,  0.5f,  0.0f,
+	 0.5f, -0.5f,  0.0f
+};
+
 int main(int argc, char** argv)
 {
 	en::flag_memory_debug();
+
+	en::setPath("../assets");
 
 	en::Engine::Instance().Init();
 	en::Engine::Instance().Register();
