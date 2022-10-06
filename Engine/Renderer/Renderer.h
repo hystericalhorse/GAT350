@@ -22,6 +22,13 @@ namespace en
 	class Renderer
 	{
 	public:
+		struct RenderColor
+		{
+			float r, g, b = 0.0f;
+			float a = 1.0f;
+		};
+
+	public:
 		Renderer() = default;
 		~Renderer() = default;
 
@@ -35,6 +42,7 @@ namespace en
 
 		void newWindow(const char* title, int width, int height, bool fullscreen = false);
 		void beginFrame();
+		void beginFrame(const RenderColor& color);
 		void endFrame();
 		void setClearColor(const Color& color) { _clearcolor = color; }
 		Color& getClearColor() { return _clearcolor; }
@@ -62,6 +70,8 @@ namespace en
 
 		void setView(const Matrix3x3& view) { _view = view; }
 		void setViewport(const Matrix3x3& viewport) { _viewport = viewport; }
+
+		
 
 	private:
 		int width = 0;
