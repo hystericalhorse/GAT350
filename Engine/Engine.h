@@ -8,6 +8,7 @@
 #include "Renderer/Renderer.h"
 #include "Renderer/Text.h"
 #include "Renderer/Font.h"
+#include "Renderer/Shader.h"
 
 #include "Math/MathUtils.h"
 #include "Math/Random.h"
@@ -43,6 +44,8 @@
 #include "Components/CharacterComponent.h"
 
 #include "Resource/ResourceManager.h"
+
+#include "glm/glm.hpp" // OpenGL Mathematics
 
 #include <memory>
 #include <vector>
