@@ -102,7 +102,7 @@
     </Link>
     <Lib>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;fmod_vc.lib;SDL2_ttf.lib;SDL2_image.lib;box2d.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(ProjectDir)ThirdParty\SDL2\lib\$(PlatformTarget)\;$(ProjectDir)ThirdParty\fmod\core\lib\$(PlatformTarget)\;$(ProjectDir)ThirdParty\box2d\lib;%AdditionalDirectories</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ProjectDir)ThirdParty\SDL2\lib\$(PlatformTarget)\;$(ProjectDir)ThirdParty\fmod\core\lib\$(PlatformTarget)\;$(ProjectDir)ThirdParty\box2d\lib\;%AdditionalDirectories</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -125,7 +125,7 @@
     </Link>
     <Lib>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;fmod_vc.lib;SDL2_ttf.lib;SDL2_image.lib;box2d.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(ProjectDir)ThirdParty\SDL2\lib\$(PlatformTarget)\;$(ProjectDir)ThirdParty\fmod\core\lib\$(PlatformTarget)\;$(ProjectDir)ThirdParty\box2d\lib;%AdditionalDirectories</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ProjectDir)ThirdParty\SDL2\lib\$(PlatformTarget)\;$(ProjectDir)ThirdParty\fmod\core\lib\$(PlatformTarget)\;$(ProjectDir)ThirdParty\box2d\lib\;%AdditionalDirectories</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -144,7 +144,7 @@
     </Link>
     <Lib>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;fmod_vc.lib;SDL2_ttf.lib;SDL2_image.lib;box2d.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(ProjectDir)ThirdParty\SDL2\lib\$(PlatformTarget)\;$(ProjectDir)ThirdParty\fmod\core\lib\$(PlatformTarget)\;$(ProjectDir)ThirdParty\box2d\lib;%AdditionalDirectories</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ProjectDir)ThirdParty\SDL2\lib\$(PlatformTarget)\;$(ProjectDir)ThirdParty\fmod\core\lib\$(PlatformTarget)\;$(ProjectDir)ThirdParty\box2d\lib\;%AdditionalDirectories</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -167,7 +167,7 @@
     </Link>
     <Lib>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;fmod_vc.lib;SDL2_ttf.lib;SDL2_image.lib;box2d.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(ProjectDir)ThirdParty\SDL2\lib\$(PlatformTarget)\;$(ProjectDir)ThirdParty\fmod\core\lib\$(PlatformTarget)\;$(ProjectDir)ThirdParty\box2d\lib;%AdditionalDirectories</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ProjectDir)ThirdParty\SDL2\lib\$(PlatformTarget)\;$(ProjectDir)ThirdParty\fmod\core\lib\$(PlatformTarget)\;$(ProjectDir)ThirdParty\box2d\lib\;%AdditionalDirectories</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
