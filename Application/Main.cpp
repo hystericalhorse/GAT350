@@ -14,30 +14,12 @@ float points1[] =
 en::Vector3 colors1[] =
 {
 	{ 0.0f,  0.5f,  1.0f},
-	{ 1.0f,  1.0f,  1.0f},
-	{ 1.0f,  1.0f,  1.0f},
-	{ 1.0f,  1.0f,  1.0f},
-	{ 1.0f,  1.0f,  1.0f},
-	{ 1.0f,  1.0f,  1.0f}
+	{ 1.0f,  0.0f,  0.5f},
+	{ 0.5f,  1.0f,  0.0f},
+	{ 0.0f,  1.0f,  0.5f},
+	{ 0.5f,  0.0f,  1.0f},
+	{ 1.0f,  0.5f,  0.0f}
 };
-
-const char* vertex_shader =
-"#version 430 core\n"
-"in vec3 v_position;"
-"in vec3 v_color;"
-"out vec3 color"
-"void main() {"
-"  gl_Position = vec4(v_position, 1.0);"
-"  color = v_color;"
-"}";
-
-const char* fragment_shader =
-"#version 430 core\n"
-"in vec3 color;"
-"out vec4 f_color;"
-"void main() {"
-"	f_color = vec4(color, 1.0);"
-"}";
 
 int main(int argc, char** argv)
 {
@@ -70,22 +52,12 @@ int main(int argc, char** argv)
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, NULL);
 	glEnableVertexAttribArray(1);
 	glBindBuffer(GL_ARRAY_BUFFER, vbo_color);
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, NULL);
+	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0, NULL);
 
 	// Create OpenGL Shader
 
 	std::shared_ptr<en::Shader> vs = en::__registry.Get<en::Shader>("shader/basic.vert", GL_VERTEX_SHADER);
 	std::shared_ptr<en::Shader> fs = en::__registry.Get<en::Shader>("shader/basic.frag", GL_FRAGMENT_SHADER);
-
-	/**
-	GLuint vs = glCreateShader(GL_VERTEX_SHADER);
-	glShaderSource(vs, 1, &vertex_shader, NULL);
-	glCompileShader(vs);
-	GLuint fs = glCreateShader(GL_FRAGMENT_SHADER);
-	glShaderSource(fs, 1, &fragment_shader, NULL);
-	glCompileShader(fs);
-	**/
-
 
 	// Create OpenGL Program
 	GLuint program = glCreateProgram();
@@ -101,7 +73,7 @@ int main(int argc, char** argv)
 
 		if (en::__inputsys.getKeyState(en::key_escape) == en::InputSystem::KeyState::PRESSED) quit = true;
 
-		en::__renderer.beginFrame();
+		en::__renderer.beginFrame({0.25f, 0.125f, 0.5f});
 
 		// DRAW
 		glDrawArrays(GL_TRIANGLES, 0, 6);
