@@ -11,14 +11,14 @@ float points1[] =
 	-0.5f,  0.5f,  0.0f
 };
 
-en::Vector3 colors1[] =
+glm::vec3 colors1[] =
 {
-	{ 0.0f,  0.5f,  1.0f},
-	{ 1.0f,  0.0f,  0.5f},
-	{ 0.5f,  1.0f,  0.0f},
-	{ 0.0f,  1.0f,  0.5f},
-	{ 0.5f,  0.0f,  1.0f},
-	{ 1.0f,  0.5f,  0.0f}
+	{ 0.0f,  0.0f,  1.0f },
+	{ 1.0f,  0.0f,  0.5f },
+	{ 0.5f,  0.0f,  0.5f },
+	{ 0.0f,  0.0f,  1.0f },
+	{ 0.5f,  0.0f,  0.5f },
+	{ 1.0f,  0.0f,  0.5f }
 };
 
 int main(int argc, char** argv)
@@ -40,7 +40,7 @@ int main(int argc, char** argv)
 	GLuint vbo_color = 0;
 	glGenBuffers(1, &vbo_color);
 	glBindBuffer(GL_ARRAY_BUFFER, vbo_color);
-	glBufferData(GL_ARRAY_BUFFER, 6 * sizeof(en::Vector3), colors1, GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, 6 * sizeof(glm::vec3), colors1, GL_STATIC_DRAW);
 
 	// OpenGL Vertex Array
 	GLuint vao = 0;
@@ -66,6 +66,13 @@ int main(int argc, char** argv)
 	glLinkProgram(program);
 	glUseProgram(program);
 
+	GLuint ufm_0 = glGetUniformLocation(program, "scale");
+	GLuint ufm_1 = glGetUniformLocation(program, "tint");
+	glUniform1f(ufm_0, 2.0f);
+	glUniform3f(ufm_1, 1.0f, 1.0f, 1.0f);
+
+	GLuint ufm_2 = glGetUniformLocation(program, "transform");
+
 	bool quit = false;
 	while (!quit)
 	{
@@ -73,7 +80,10 @@ int main(int argc, char** argv)
 
 		if (en::__inputsys.getKeyState(en::key_escape) == en::InputSystem::KeyState::PRESSED) quit = true;
 
-		en::__renderer.beginFrame({0.25f, 0.125f, 0.5f});
+		en::__renderer.beginFrame({0.0f, 0.0f, 0.0f, 1.0f});
+
+		// GL
+		// glUniform1f(ufm_0, std::abs(std::sin(en::__time.time * 0.2)) * 2.0);
 
 		// DRAW
 		glDrawArrays(GL_TRIANGLES, 0, 6);

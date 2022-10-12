@@ -5,9 +5,13 @@ in layout(location = 1) vec3 v_color; /* 1 */
 
 out vec3 color;
 
+uniform float scale;
+uniform mat4 transform;
+
 void main()
 {
-	gl_Position = vec4(v_position, 1.0);
-
 	color = v_color;
+	vec4 t_position = vec4(v_position, 1.0) * transform;
+
+	gl_Position = t_position;
 }
