@@ -16,7 +16,7 @@ namespace en
 
 	void TextComponent::setText(const std::string& text)
 	{
-		_texture->CreateFromSurface(_font->CreateSurface(text, color), __renderer);
+		// _texture->CreateFromSurface(_font->CreateSurface(text, color), __renderer);
 	}
 
 	bool TextComponent::Write(const rapidjson::Value& value) const

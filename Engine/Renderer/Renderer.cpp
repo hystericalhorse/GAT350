@@ -46,7 +46,7 @@ namespace en
 		dest.w = (int) size.x;
 		dest.h = (int) size.y;
 
-		SDL_RenderCopyEx(_renderer, texture -> _texture, nullptr, &dest, angle, &center, SDL_FLIP_NONE);
+		// SDL_RenderCopyEx(_renderer, texture -> _texture, nullptr, &dest, angle, &center, SDL_FLIP_NONE);
 	}
 
 	void Renderer::Draw(std::shared_ptr<Texture> texture, const Transform& transform, const Vector2& regist)
@@ -66,7 +66,7 @@ namespace en
 		dest.w = (int)size.x;
 		dest.h = (int)size.y;
 
-		SDL_RenderCopyEx(_renderer, texture->_texture, nullptr, &dest, transform.rotation, &center, SDL_FLIP_NONE);
+		// SDL_RenderCopyEx(_renderer, texture->_texture, nullptr, &dest, transform.rotation, &center, SDL_FLIP_NONE);
 	}
 
 	void Renderer::Draw(std::shared_ptr<Texture> texture, const Rect& source, const Transform& transform, const Vector2& regist, bool flipH)
@@ -96,7 +96,7 @@ namespace en
 
 		SDL_RendererFlip sdl_flip = (flipH) ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE;
 
-		SDL_RenderCopyEx(_renderer, texture->_texture, &src, &dest, en::degrees(mx.get_rotation()), &center, sdl_flip);
+		// SDL_RenderCopyEx(_renderer, texture->_texture, &src, &dest, en::degrees(mx.get_rotation()), &center, sdl_flip);
 	}
 
 	void Renderer::Draw2(std::shared_ptr<Texture> texture, const Rect& source, const Transform& transform, const Vector2& regist, bool flipH)
@@ -124,7 +124,7 @@ namespace en
 
 		SDL_RendererFlip sdl_flip = (flipH) ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE;
 
-		SDL_RenderCopyEx(_renderer, texture->_texture, &src, &dest, transform.rotation, &center, sdl_flip);
+		// SDL_RenderCopyEx(_renderer, texture->_texture, &src, &dest, transform.rotation, &center, sdl_flip);
 	}
 
 	void Renderer::newWindow(const char* title, int width, int height, bool fullscreen)
