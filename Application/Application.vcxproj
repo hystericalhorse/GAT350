@@ -139,6 +139,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Build\assets\shader\basic.frag" />
+    <None Include="..\Build\assets\shader\basic.prog" />
     <None Include="..\Build\assets\shader\basic.vert" />
   </ItemGroup>
   <ItemGroup>
