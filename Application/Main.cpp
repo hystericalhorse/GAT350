@@ -68,10 +68,13 @@ int main(int argc, char** argv)
 
 	GLuint ufm_0 = glGetUniformLocation(program, "scale");
 	GLuint ufm_1 = glGetUniformLocation(program, "tint");
-	glUniform1f(ufm_0, 2.0f);
+	glUniform1f(ufm_0, 1.0f);
 	glUniform3f(ufm_1, 1.0f, 1.0f, 1.0f);
 
 	GLuint ufm_2 = glGetUniformLocation(program, "transform");
+	glm::mat4 mx { 1.0 };
+	
+	glUniformMatrix4fv(ufm_2, 1, GL_FALSE, glm::value_ptr(mx));
 
 	bool quit = false;
 	while (!quit)
@@ -80,10 +83,11 @@ int main(int argc, char** argv)
 
 		if (en::__inputsys.getKeyState(en::key_escape) == en::InputSystem::KeyState::PRESSED) quit = true;
 
-		en::__renderer.beginFrame({0.0f, 0.0f, 0.0f, 1.0f});
-
 		// GL
-		// glUniform1f(ufm_0, std::abs(std::sin(en::__time.time * 0.2)) * 2.0);
+		mx = glm::eulerAngleXYZ(1.0, std::cos(en::__time.time) * 1.0, 1.0);
+		glUniformMatrix4fv(ufm_2, 1, GL_FALSE, glm::value_ptr(mx));
+
+		en::__renderer.beginFrame({0.0f, 0.0f, 0.0f, 1.0f});
 
 		// DRAW
 		glDrawArrays(GL_TRIANGLES, 0, 6);

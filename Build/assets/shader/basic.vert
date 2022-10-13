@@ -11,7 +11,7 @@ uniform mat4 transform;
 void main()
 {
 	color = v_color;
-	vec4 t_position = vec4(v_position, 1.0) * transform;
+	vec4 t_position = vec4(v_position * scale, 1.0) * transform;
 
 	gl_Position = t_position;
 }
