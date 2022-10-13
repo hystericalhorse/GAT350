@@ -21,13 +21,26 @@ glm::vec3 colors1[] =
 	{ 1.0f,  0.0f,  0.5f }
 };
 
+glm::vec2 uv1[] =
+{
+	{0.50, 0.50},
+	{0.50, 0.75},
+	{0.75, 0.50},
+	{0.75, 0.75},
+	{0.75, 0.50},
+	{0.50, 0.75},
+};
+
 int main(int argc, char** argv)
 {
+	LOG("Application Start.");
+
 	en::flag_memory_debug();
 
 	en::setPath("../assets");
 
 	en::Engine::Instance().Init();
+	LOG("Engine Init...");
 
 	en::__renderer.newWindow("Application", 800, 600);
 	
@@ -42,6 +55,11 @@ int main(int argc, char** argv)
 	glBindBuffer(GL_ARRAY_BUFFER, vbo_color);
 	glBufferData(GL_ARRAY_BUFFER, 6 * sizeof(glm::vec3), colors1, GL_STATIC_DRAW);
 
+	GLuint vbo_uv = 0;
+	glGenBuffers(1, &vbo_color);
+	glBindBuffer(GL_ARRAY_BUFFER, vbo_uv);
+	glBufferData(GL_ARRAY_BUFFER, 6 * sizeof(glm::vec2), uv1, GL_STATIC_DRAW);
+
 	// OpenGL Vertex Array
 	GLuint vao = 0;
 	glGenVertexArrays(1, &vao);
@@ -50,9 +68,14 @@ int main(int argc, char** argv)
 	glEnableVertexAttribArray(0);
 	glBindBuffer(GL_ARRAY_BUFFER, vbo_points);
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, NULL);
+
 	glEnableVertexAttribArray(1);
 	glBindBuffer(GL_ARRAY_BUFFER, vbo_color);
 	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0, NULL);
+
+	glEnableVertexAttribArray(2);
+	glBindBuffer(GL_ARRAY_BUFFER, vbo_uv);
+	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 0, NULL);
 
 	// Create OpenGL Shader
 
