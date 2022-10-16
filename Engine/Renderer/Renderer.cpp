@@ -29,103 +29,7 @@ namespace en
 		IMG_Quit();
 	}
 
-	void Renderer::Draw(std::shared_ptr<en::Texture> texture, const Vector2& position, float angle, const Vector2& scale, const Vector2& regist)
-	{
-		Vector2 size = texture->getSize();
-		size = size * scale;
-
-		Vector2 origin = size * regist;
-		Vector2 pos = position - origin;
-		const SDL_Point center {(int) origin.x, (int) origin.y};
-
-		SDL_Rect dest;
-		// Destination Position
-		dest.x = (int) pos.x;
-		dest.y = (int) pos.y;
-		// Scale
-		dest.w = (int) size.x;
-		dest.h = (int) size.y;
-
-		// SDL_RenderCopyEx(_renderer, texture -> _texture, nullptr, &dest, angle, &center, SDL_FLIP_NONE);
-	}
-
-	void Renderer::Draw(std::shared_ptr<Texture> texture, const Transform& transform, const Vector2& regist)
-	{
-		Vector2 size = texture->getSize();
-		size = size * transform.scale;
-
-		Vector2 origin = size * regist;
-		Vector2 pos = transform.position - origin;
-		const SDL_Point center{ (int) origin.x, (int) origin.y };
-
-		SDL_Rect dest;
-		// Destination Position
-		dest.x = (int)pos.x;
-		dest.y = (int)pos.y;
-		// Scale
-		dest.w = (int)size.x;
-		dest.h = (int)size.y;
-
-		// SDL_RenderCopyEx(_renderer, texture->_texture, nullptr, &dest, transform.rotation, &center, SDL_FLIP_NONE);
-	}
-
-	void Renderer::Draw(std::shared_ptr<Texture> texture, const Rect& source, const Transform& transform, const Vector2& regist, bool flipH)
-	{
-		Matrix3x3 mx = _viewport * _view * transform.matrix;
-
-		Vector2 size { source.w, source.h };
-		size *= mx.get_scale();
-
-		Vector2 origin = size * regist;
-		Vector2 pos = mx.get_translation() - origin;
-		const SDL_Point center{ (int)origin.x, (int)origin.y };
-
-		SDL_Rect src;
-		src.x = source.x;
-		src.y = source.y;
-		src.w = source.w;
-		src.h = source.h;
-
-		SDL_Rect dest;
-		// Destination Position
-		dest.x = (int)pos.x;
-		dest.y = (int)pos.y;
-		// Scale
-		dest.w = (int)size.x;
-		dest.h = (int)size.y;
-
-		SDL_RendererFlip sdl_flip = (flipH) ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE;
-
-		// SDL_RenderCopyEx(_renderer, texture->_texture, &src, &dest, en::degrees(mx.get_rotation()), &center, sdl_flip);
-	}
-
-	void Renderer::Draw2(std::shared_ptr<Texture> texture, const Rect& source, const Transform& transform, const Vector2& regist, bool flipH)
-	{
-		Vector2 size{ source.w, source.h };
-		size *= transform.scale;
-
-		Vector2 origin = size * regist;
-		Vector2 pos = transform.position - origin;
-		const SDL_Point center{ (int) origin.x, (int) origin.y };
-
-		SDL_Rect src;
-		src.x = source.x;
-		src.y = source.y;
-		src.w = source.w;
-		src.h = source.h;
-
-		SDL_Rect dest;
-		// Destination Position
-		dest.x = (int)pos.x;
-		dest.y = (int)pos.y;
-		// Scale
-		dest.w = (int)size.x;
-		dest.h = (int)size.y;
-
-		SDL_RendererFlip sdl_flip = (flipH) ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE;
-
-		// SDL_RenderCopyEx(_renderer, texture->_texture, &src, &dest, transform.rotation, &center, sdl_flip);
-	}
+	
 
 	void Renderer::newWindow(const char* title, int width, int height, bool fullscreen)
 	{
@@ -270,4 +174,105 @@ namespace en
 			}
 		}
 	}
+
+	/** Deprecated *******************************
+	* void Renderer::Draw(std::shared_ptr<en::Texture> texture, const Vector2& position, float angle, const Vector2& scale, const Vector2& regist)
+	{
+		Vector2 size = texture->getSize();
+		size = size * scale;
+
+		Vector2 origin = size * regist;
+		Vector2 pos = position - origin;
+		const SDL_Point center {(int) origin.x, (int) origin.y};
+
+		SDL_Rect dest;
+		// Destination Position
+		dest.x = (int) pos.x;
+		dest.y = (int) pos.y;
+		// Scale
+		dest.w = (int) size.x;
+		dest.h = (int) size.y;
+
+		// SDL_RenderCopyEx(_renderer, texture -> _texture, nullptr, &dest, angle, &center, SDL_FLIP_NONE);
+	}
+
+	void Renderer::Draw(std::shared_ptr<Texture> texture, const Transform& transform, const Vector2& regist)
+	{
+		Vector2 size = texture->getSize();
+		size = size * transform.scale;
+
+		Vector2 origin = size * regist;
+		Vector2 pos = transform.position - origin;
+		const SDL_Point center{ (int) origin.x, (int) origin.y };
+
+		SDL_Rect dest;
+		// Destination Position
+		dest.x = (int)pos.x;
+		dest.y = (int)pos.y;
+		// Scale
+		dest.w = (int)size.x;
+		dest.h = (int)size.y;
+
+		// SDL_RenderCopyEx(_renderer, texture->_texture, nullptr, &dest, transform.rotation, &center, SDL_FLIP_NONE);
+	}
+
+	void Renderer::Draw(std::shared_ptr<Texture> texture, const Rect& source, const Transform& transform, const Vector2& regist, bool flipH)
+	{
+		Matrix3x3 mx = _viewport * _view * transform.matrix;
+
+		Vector2 size { source.w, source.h };
+		size *= mx.get_scale();
+
+		Vector2 origin = size * regist;
+		Vector2 pos = mx.get_translation() - origin;
+		const SDL_Point center{ (int)origin.x, (int)origin.y };
+
+		SDL_Rect src;
+		src.x = source.x;
+		src.y = source.y;
+		src.w = source.w;
+		src.h = source.h;
+
+		SDL_Rect dest;
+		// Destination Position
+		dest.x = (int)pos.x;
+		dest.y = (int)pos.y;
+		// Scale
+		dest.w = (int)size.x;
+		dest.h = (int)size.y;
+
+		SDL_RendererFlip sdl_flip = (flipH) ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE;
+
+		// SDL_RenderCopyEx(_renderer, texture->_texture, &src, &dest, en::degrees(mx.get_rotation()), &center, sdl_flip);
+	}
+
+	void Renderer::Draw2(std::shared_ptr<Texture> texture, const Rect& source, const Transform& transform, const Vector2& regist, bool flipH)
+	{
+		Vector2 size{ source.w, source.h };
+		size *= transform.scale;
+
+		Vector2 origin = size * regist;
+		Vector2 pos = transform.position - origin;
+		const SDL_Point center{ (int) origin.x, (int) origin.y };
+
+		SDL_Rect src;
+		src.x = source.x;
+		src.y = source.y;
+		src.w = source.w;
+		src.h = source.h;
+
+		SDL_Rect dest;
+		// Destination Position
+		dest.x = (int)pos.x;
+		dest.y = (int)pos.y;
+		// Scale
+		dest.w = (int)size.x;
+		dest.h = (int)size.y;
+
+		SDL_RendererFlip sdl_flip = (flipH) ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE;
+
+		// SDL_RenderCopyEx(_renderer, texture->_texture, &src, &dest, transform.rotation, &center, sdl_flip);
+	}
+
+	***************************************/
 }

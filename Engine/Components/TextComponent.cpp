@@ -11,7 +11,7 @@ namespace en
 
 	void TextComponent::Draw(Renderer& renderer)
 	{
-		__renderer.Draw(_texture, _owner->_Transform(), registration);
+		//__renderer.Draw(_texture, _owner->_Transform(), registration);
 	}
 
 	void TextComponent::setText(const std::string& text)

@@ -23,12 +23,12 @@ glm::vec3 colors1[] =
 
 glm::vec2 uv1[] =
 {
-	{0.50, 0.50},
-	{0.50, 0.75},
-	{0.75, 0.50},
-	{0.75, 0.75},
-	{0.75, 0.50},
-	{0.50, 0.75},
+	{0.0, 0.0},
+	{0.0, 1.0},
+	{1.0, 0.0},
+	{1.0, 1.0},
+	{1.0, 0.0},
+	{0.0, 1.0}
 };
 
 int main(int argc, char** argv)
@@ -56,7 +56,7 @@ int main(int argc, char** argv)
 	glBufferData(GL_ARRAY_BUFFER, 6 * sizeof(glm::vec3), colors1, GL_STATIC_DRAW);
 
 	GLuint vbo_uv = 0;
-	glGenBuffers(1, &vbo_color);
+	glGenBuffers(1, &vbo_uv);
 	glBindBuffer(GL_ARRAY_BUFFER, vbo_uv);
 	glBufferData(GL_ARRAY_BUFFER, 6 * sizeof(glm::vec2), uv1, GL_STATIC_DRAW);
 
@@ -78,26 +78,23 @@ int main(int argc, char** argv)
 	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 0, NULL);
 
 	// Create OpenGL Shader
-
 	std::shared_ptr<en::Shader> vs = en::__registry.Get<en::Shader>("shader/basic.vert", GL_VERTEX_SHADER);
 	std::shared_ptr<en::Shader> fs = en::__registry.Get<en::Shader>("shader/basic.frag", GL_FRAGMENT_SHADER);
 
 	// Create OpenGL Program
-	GLuint program = glCreateProgram();
-	glAttachShader(program, fs->_shader);
-	glAttachShader(program, vs->_shader);
-	glLinkProgram(program);
-	glUseProgram(program);
+	std::shared_ptr<en::Program> program = en::__registry.Get<en::Program>("shader/basic.prog");
+	program->Link();
+	program->Use();
 
-	GLuint ufm_0 = glGetUniformLocation(program, "scale");
-	GLuint ufm_1 = glGetUniformLocation(program, "tint");
-	glUniform1f(ufm_0, 1.0f);
-	glUniform3f(ufm_1, 1.0f, 1.0f, 1.0f);
+	// Create OpenGL Texture
+	std::shared_ptr<en::Texture> texture = en::__registry.Get<en::Texture>("texture/crate.png");
+	texture->Bind();
 
-	GLuint ufm_2 = glGetUniformLocation(program, "transform");
-	glm::mat4 mx { 1.0 };
-	
-	glUniformMatrix4fv(ufm_2, 1, GL_FALSE, glm::value_ptr(mx));
+	// Modify Uniform Objects
+	program->setUniform("scale", 1.0f);
+
+	glm::mat4 mx{ 1.0 };
+	program->setUniform("transform", mx);
 
 	bool quit = false;
 	while (!quit)
@@ -107,8 +104,6 @@ int main(int argc, char** argv)
 		if (en::__inputsys.getKeyState(en::key_escape) == en::InputSystem::KeyState::PRESSED) quit = true;
 
 		// GL
-		mx = glm::eulerAngleXYZ(1.0, std::cos(en::__time.time) * 1.0, 1.0);
-		glUniformMatrix4fv(ufm_2, 1, GL_FALSE, glm::value_ptr(mx));
 
 		en::__renderer.beginFrame({0.0f, 0.0f, 0.0f, 1.0f});
 

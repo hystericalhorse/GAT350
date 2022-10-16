@@ -3,6 +3,7 @@
 
 #include "Math/Vector2.h"
 #include "Resource/Resource.h"
+#include "Renderer.h"
 #include <string>
 
 struct SDL_Texture;
@@ -18,7 +19,7 @@ namespace en
 		Texture() = default;
 		~Texture();
 
-		/** Deprecate **********************
+		/** Deprecated **********************
 
 		bool CreateFromSurface(SDL_Surface* surface, Renderer& renderer);
 
@@ -26,6 +27,8 @@ namespace en
 
 		bool Create(Renderer& renderer, const std::string& filename);
 		bool Create(std::string filename, ...) override;
+
+		void Bind() { glBindTexture(_target, _texture); }
 
 		Vector2 getSize() const;
 

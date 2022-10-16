@@ -10,7 +10,7 @@ namespace en
 
 	void SpriteComponent::Draw(Renderer& renderer)
 	{	
-		renderer.Draw(_texture, _Source(), _owner->_Transform());
+		// renderer.Draw(_texture, _Source(), _owner->_Transform());
 	}
 
 	bool SpriteComponent::Write(const rapidjson::Value& value) const
