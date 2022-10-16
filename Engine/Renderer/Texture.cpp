@@ -14,6 +14,7 @@ namespace en
 	{
 		SDL_Surface* _surface = IMG_Load(filename.c_str());
 		if (_surface == nullptr) { LOG(SDL_GetError()); return false; }
+		flipSurface(_surface);
 
 		glGenTextures(1, &_texture);
 		glBindTexture(_target, _texture);
@@ -46,6 +47,28 @@ namespace en
 	en::Vector2 Texture::getSize() const
 	{
 		return Vector2{ 0 , 0 };
+	}
+
+	void Texture::flipSurface(SDL_Surface* surface)
+	{
+		SDL_LockSurface(surface);
+
+		int pitch = surface->pitch;
+		uint8_t* t = new uint8_t[pitch];
+		uint8_t* pixels = (uint8_t*) surface->pixels;
+
+		for (int i = 0; i < surface->h / 2; ++i) {
+			uint8_t* row1 = pixels + i * pitch;
+			uint8_t* row2 = pixels + (surface->h - i - 1) * pitch;
+
+			memcpy(t, row1, pitch);
+			memcpy(row1, row2, pitch);
+			memcpy(row2, t, pitch);
+		}
+
+		delete[] t;
+
+		SDL_UnlockSurface(surface);
 	}
 
 	/** Deprecated ***************************************************************

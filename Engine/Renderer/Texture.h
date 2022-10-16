@@ -39,6 +39,8 @@ namespace en
 		GLenum _target = GL_TEXTURE_2D;
 		GLuint _unit = GL_TEXTURE0;
 
+		void flipSurface(SDL_Surface* surface);
+
 		/** Deprecated **********************
 		
 		SDL_Texture* _texture = nullptr;
