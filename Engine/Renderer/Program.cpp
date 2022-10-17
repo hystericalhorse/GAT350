@@ -33,7 +33,7 @@ namespace en
 		READ_DATA(document, fragment_shader);
 		if (!fragment_shader.empty())
 		{
-			auto f_sh = __registry.Get<en::Shader>(fragment_shader, GL_VERTEX_SHADER);
+			auto f_sh = __registry.Get<en::Shader>(fragment_shader, GL_FRAGMENT_SHADER);
 			newShader(f_sh);
 		}
 

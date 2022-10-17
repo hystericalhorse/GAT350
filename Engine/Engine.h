@@ -10,6 +10,7 @@
 #include "Renderer/Font.h"
 #include "Renderer/Shader.h"
 #include "Renderer/Program.h"
+#include "Renderer/Material.h"
 
 #include "Math/MathUtils.h"
 #include "Math/Random.h"

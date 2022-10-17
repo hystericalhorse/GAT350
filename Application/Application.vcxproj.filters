@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Resource Files\shader">
+      <UniqueIdentifier>{bef8e977-e716-42a1-9e32-2590f1069507}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\material">
+      <UniqueIdentifier>{6f7322b9-c6b1-4577-a8af-9e5d26031a7a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -21,13 +27,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Build\assets\shader\basic.frag">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="..\Build\assets\shader\basic.vert">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\shader</Filter>
     </None>
     <None Include="..\Build\assets\shader\basic.prog">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\shader</Filter>
+    </None>
+    <None Include="..\Build\assets\shader\basic.vert">
+      <Filter>Resource Files\shader</Filter>
+    </None>
+    <None Include="..\Build\assets\material\box.mtrl">
+      <Filter>Resource Files\material</Filter>
     </None>
   </ItemGroup>
 </Project>

@@ -1,0 +1,23 @@
+{ 
+    "program": "shader/basic.prog",
+    "texture": "texture/crate.png",
+    "ambient":
+	  [ 
+        1.0, 
+        1.0, 
+        1.0 
+    ], 
+    "diffuse":
+	  [ 
+        1.0, 
+        1.0, 
+        1.0 
+    ], 
+    "specular":
+	  [ 
+        1.0, 
+        1.0, 
+        1.0 
+    ], 
+    "shininess": 100.0
+}

@@ -43,7 +43,7 @@ int main(int argc, char** argv)
 	LOG("Engine Init...");
 
 	en::__renderer.newWindow("Application", 800, 600);
-	
+
 	// OpenGL Vertex Buffer
 	GLuint vbo_points = 0;
 	glGenBuffers(1, &vbo_points);
@@ -77,24 +77,17 @@ int main(int argc, char** argv)
 	glBindBuffer(GL_ARRAY_BUFFER, vbo_uv);
 	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 0, NULL);
 
-	// Create OpenGL Shader
-	std::shared_ptr<en::Shader> vs = en::__registry.Get<en::Shader>("shader/basic.vert", GL_VERTEX_SHADER);
-	std::shared_ptr<en::Shader> fs = en::__registry.Get<en::Shader>("shader/basic.frag", GL_FRAGMENT_SHADER);
-
-	// Create OpenGL Program
-	std::shared_ptr<en::Program> program = en::__registry.Get<en::Program>("shader/basic.prog");
-	program->Link();
-	program->Use();
-
-	// Create OpenGL Texture
-	std::shared_ptr<en::Texture> texture = en::__registry.Get<en::Texture>("texture/crate.png");
-	texture->Bind();
+	// Create Object (Creates Program, Shaders, and Textures)
+	std::shared_ptr<en::Material> material = en::__registry.Get<en::Material>("material/box.mtrl");
+	material->Link();
+	material->Bind();
 
 	// Modify Uniform Objects
-	program->setUniform("scale", 1.0f);
+	material->getProgram()->setUniform("scale", 1.0f);
+	material->getProgram()->setUniform("tint", glm::vec3{ 0.0f, 0.0f, 0.0f });
 
 	glm::mat4 mx{ 1.0 };
-	program->setUniform("transform", mx);
+	material->getProgram()->setUniform("transform", mx);
 
 	bool quit = false;
 	while (!quit)
@@ -105,11 +98,11 @@ int main(int argc, char** argv)
 
 		// GL
 
-		en::__renderer.beginFrame({0.0f, 0.0f, 0.0f, 1.0f});
+		en::__renderer.beginFrame({ 0.0f, 0.0f, 0.0f, 1.0f });
 
 		// DRAW
 		glDrawArrays(GL_TRIANGLES, 0, 6);
-		
+
 		en::__renderer.endFrame();
 	}
 

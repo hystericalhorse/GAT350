@@ -169,6 +169,9 @@
     <ClCompile Include="Renderer\Program.cpp">
       <Filter>Source\Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="Renderer\Material.cpp">
+      <Filter>Source\Renderer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Math\MathUtils.h">
@@ -337,6 +340,9 @@
       <Filter>Source\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="Renderer\Program.h">
+      <Filter>Source\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer\Material.h">
       <Filter>Source\Renderer</Filter>
     </ClInclude>
   </ItemGroup>

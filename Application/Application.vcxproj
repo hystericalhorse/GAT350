@@ -138,6 +138,7 @@
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\Build\assets\material\box.mtrl" />
     <None Include="..\Build\assets\shader\basic.frag" />
     <None Include="..\Build\assets\shader\basic.prog" />
     <None Include="..\Build\assets\shader\basic.vert" />
