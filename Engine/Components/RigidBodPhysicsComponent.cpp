@@ -10,7 +10,7 @@ namespace en
 
 	void RigidBodPhysicsComponent::Init()
 	{
-		_body = __physics.CreateBody(_owner->_Transform().position, _owner->_Transform().rotation, data);
+		//_body = __physics.CreateBody(_owner->_Transform().position, _owner->_Transform().rotation, data);
 		_body->SetGravityScale(data.gravity_scale);
 		_body->SetLinearDamping(_damping);
 	}
@@ -23,8 +23,8 @@ namespace en
 	void RigidBodPhysicsComponent::Update()
 	{
 		Vector2 position = B2VEC2_TO_VECTOR2(_body->GetPosition());
-		_owner->_Transform().position = PhysicsSystem::WorldToScreen(position);
-		_owner->_Transform().rotation = en::degrees(_body->GetAngle());
+		//_owner->_Transform().position = PhysicsSystem::WorldToScreen(position);
+		//_owner->_Transform().rotation = en::degrees(_body->GetAngle());
 
 		_velocity = B2VEC2_TO_VECTOR2(_body->GetLinearVelocity());
 	}

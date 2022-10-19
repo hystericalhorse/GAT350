@@ -11,6 +11,7 @@
 #include "Renderer/Shader.h"
 #include "Renderer/Program.h"
 #include "Renderer/Material.h"
+#include "Renderer/VertexBuffer.h"
 
 #include "Math/MathUtils.h"
 #include "Math/Random.h"
@@ -24,7 +25,6 @@
 
 #include "Physics/PhysicsSystem.h"
 
-#include "Framework/Background.h"
 #include "Framework/Scene.h"
 #include "Framework/Game.h"
 #include "Framework/Factory.h"
@@ -37,7 +37,6 @@
 #include "Components/PhysicsComponent.h"
 #include "Components/RigidBodPhysicsComponent.h"
 #include "Components/CollisionComponent.h"
-#include "Components/ModelComponent.h"
 #include "Components/TextComponent.h"
 #include "Components/SpriteAnimComponent.h"
 #include "Components/TilemapComponent.h"

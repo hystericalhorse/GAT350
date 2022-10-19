@@ -58,27 +58,11 @@ int main(int argc, char** argv)
 
 	en::__renderer.newWindow("Application", 800, 600);
 
-	// OpenGL Vertex Buffer
-	GLuint vbo = 0;
-	glGenBuffers(1, &vbo);
-	glBindBuffer(GL_ARRAY_BUFFER, vbo);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-
-	// OpenGL Vertex Array
-	GLuint vao = 0;
-	glGenVertexArrays(1, &vao);
-	glBindVertexArray(vao);
-
-	glBindBuffer(GL_ARRAY_BUFFER, vbo);
-
-	glEnableVertexAttribArray(0); // Position
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*) 0);
-
-	glEnableVertexAttribArray(1); // Color
-	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*) (3 * sizeof(float)));
-
-	glEnableVertexAttribArray(2); // UV
-	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*) (6 * sizeof(float)));
+	std::shared_ptr<en::VertexBuffer> vb = en::__registry.Get<en::VertexBuffer>("box");
+	vb->CreateVertexBuffer(sizeof(vertices), 36, vertices);
+	vb->SetAttribute(0, 3, 8 * sizeof(float), 0); // position
+	vb->SetAttribute(1, 3, 8 * sizeof(float), 3 * sizeof(float)); // color
+	vb->SetAttribute(2, 2, 8 * sizeof(float), 6 * sizeof(float)); // uv
 
 	// Create Object (Creates Program, Shaders, and Textures)
 	std::shared_ptr<en::Material> material = en::__registry.Get<en::Material>("material/box.mtrl");
@@ -114,7 +98,7 @@ int main(int argc, char** argv)
 		en::__renderer.beginFrame({ 0.0f, 0.0f, 1.0f, 1.0f });
 
 		// DRAW
-		glDrawArrays(GL_TRIANGLES, 0, 36);
+		vb->Draw();
 
 		en::__renderer.endFrame();
 	}

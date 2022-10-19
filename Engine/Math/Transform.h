@@ -1,8 +1,5 @@
 #ifndef _TRANSFORM_H
 #define _TRANSFORM_H
-#include "Vector2.h"
-#include "Matrix2x2.h"
-#include "Matrix3x3.h"
 #include "MathUtils.h"
 
 #include "Serialization/Serializable.h"
@@ -11,15 +8,15 @@ namespace en
 {
 	struct Transform : public Serializable
 	{
-		Transform() = default;
-		Transform(const Vector2& pos, float rot, Vector2 sca) :
-			position{pos}, rotation{rot}, scale{sca}
-		{}
+		glm::vec3 position{ 0.0f, 0.0f, 0.0f };
+		glm::vec3 scale{ 1.0f, 1.0f, 1.0f };
+		glm::vec3 rotation = { 0.0f, 0.0f, 0.0f };
+		glm::mat4 matrix;
 
-		Vector2 position { 0,0 };
-		Vector2 scale { 1, 1 };
-		float rotation = 0.0f; // rotation in degrees
-		Matrix3x3 matrix;
+		Transform() = default;
+		Transform(const glm::vec3& pos, const glm::vec3 rot, const glm::vec3& scale = { 1.0f, 1.0f, 1.0f}) :
+			position{pos}, rotation{rot}, scale{scale}
+		{}
 
 		virtual bool Write(const rapidjson::Value& value) const override
 		{
@@ -48,28 +45,19 @@ namespace en
 
 		void update()
 		{
-			Matrix3x3 mxS = Matrix3x3::scale(scale);
-			Matrix3x3 mxR = Matrix3x3::rotate(en::radians(rotation));
-			Matrix3x3 mxT = Matrix3x3::translate(position);
-
-			matrix = { mxT * mxR * mxS };
+			matrix = *this;
 		}
 
-		void update(const Matrix3x3& parent)
+		void update(const glm::mat4& parent)
 		{
-			Matrix3x3 mxS = Matrix3x3::scale(scale);
-			Matrix3x3 mxR = Matrix3x3::rotate(en::radians(rotation));
-			Matrix3x3 mxT = Matrix3x3::translate(position);
-
-			matrix = { mxT * mxR * mxS };
-			matrix = parent * matrix;
+			matrix = parent * (glm::mat4) (*this);
 		}
 
-		operator Matrix3x3 () const
+		operator glm::mat4 () const
 		{
-			Matrix3x3 mxS = Matrix3x3::scale(scale);
-			Matrix3x3 mxR = Matrix3x3::rotate(en::radians(rotation));
-			Matrix3x3 mxT = Matrix3x3::translate(position);
+			glm::mat4 mxS = glm::scale(scale);
+			glm::mat4 mxR = glm::eulerAngleXYZ(glm::radians(rotation.x), glm::radians(rotation.y), glm::radians(rotation.z));
+			glm::mat4 mxT = glm::translate(position);
 
 			return { mxT * mxR * mxS };
 		}

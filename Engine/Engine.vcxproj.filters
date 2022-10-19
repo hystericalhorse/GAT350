@@ -79,12 +79,6 @@
     <ClCompile Include="Renderer\Text.cpp">
       <Filter>Source\Renderer</Filter>
     </ClCompile>
-    <ClCompile Include="Framework\Drawable.cpp">
-      <Filter>Source\Framework</Filter>
-    </ClCompile>
-    <ClCompile Include="Framework\Background.cpp">
-      <Filter>Source\Framework</Filter>
-    </ClCompile>
     <ClCompile Include="Renderer\Texture.cpp">
       <Filter>Source\Renderer</Filter>
     </ClCompile>
@@ -114,9 +108,6 @@
     </ClCompile>
     <ClCompile Include="Math\Matrix3x3.cpp">
       <Filter>Source\Math</Filter>
-    </ClCompile>
-    <ClCompile Include="Components\ModelComponent.cpp">
-      <Filter>Source\Components</Filter>
     </ClCompile>
     <ClCompile Include="Resource\ResourceManager.cpp">
       <Filter>Source\Resource</Filter>
@@ -170,6 +161,9 @@
       <Filter>Source\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="Renderer\Material.cpp">
+      <Filter>Source\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="Renderer\VertexBuffer.cpp">
       <Filter>Source\Renderer</Filter>
     </ClCompile>
   </ItemGroup>
@@ -228,12 +222,6 @@
     <ClInclude Include="Renderer\Text.h">
       <Filter>Source\Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="Framework\Drawable.h">
-      <Filter>Source\Framework</Filter>
-    </ClInclude>
-    <ClInclude Include="Framework\Background.h">
-      <Filter>Source\Framework</Filter>
-    </ClInclude>
     <ClInclude Include="Framework\Game.h">
       <Filter>Source\Framework</Filter>
     </ClInclude>
@@ -269,9 +257,6 @@
     </ClInclude>
     <ClInclude Include="Math\Matrix3x3.h">
       <Filter>Source\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="Components\ModelComponent.h">
-      <Filter>Source\Components</Filter>
     </ClInclude>
     <ClInclude Include="Resource\Resource.h">
       <Filter>Source\Resource</Filter>
@@ -343,6 +328,9 @@
       <Filter>Source\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="Renderer\Material.h">
+      <Filter>Source\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer\VertexBuffer.h">
       <Filter>Source\Renderer</Filter>
     </ClInclude>
   </ItemGroup>

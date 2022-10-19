@@ -70,6 +70,8 @@ namespace en
 		SDL_GL_SwapWindow(_window);
 	}
 
+	/********* DEPRECATED **************************************************************
+
 	void Renderer::drawLine(float x1, float y1, float x2, float y2, const Color& color)
 	{
 		SDL_SetRenderDrawColor(_renderer, color.r, color.g, color.b, color.a);
@@ -173,7 +175,6 @@ namespace en
 		}
 	}
 
-	/** Deprecated *******************************
 	* void Renderer::Draw(std::shared_ptr<en::Texture> texture, const Vector2& position, float angle, const Vector2& scale, const Vector2& regist)
 	{
 		Vector2 size = texture->getSize();
@@ -272,5 +273,5 @@ namespace en
 		// SDL_RenderCopyEx(_renderer, texture->_texture, &src, &dest, transform.rotation, &center, sdl_flip);
 	}
 
-	***************************************/
+	*****************************************************/
 }

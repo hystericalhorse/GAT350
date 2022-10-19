@@ -42,6 +42,15 @@ namespace en
 		void Draw(std::shared_ptr<Texture> texture, const Rect& source, const Transform& transform, const Vector2& regist = Vector2{ .5, .5 }, bool flipH = false);
 		void Draw2(std::shared_ptr<Texture> texture, const Rect& source, const Transform& transform, const Vector2& regist = Vector2{ .5, .5 }, bool flipH = false);
 
+		void drawLine(float x1, float y1, float x2, float y2, const Color& color);
+		void drawLine(const Vector2& v1, const Vector2& v2, const Color& color);
+
+		void drawPoint(float x, float y, const Color& color);
+		void drawPoint(const Vector2& vector, const Color& color); // Pass by value
+
+		void drawCircle(float x, float y, float radius, const Color& color);
+		void drawCircle(Vector2& position, float radius, const Color& color);
+
 		***********************************************************************************************************************************/
 
 		void newWindow(const char* title, int width, int height, bool fullscreen = false);
@@ -51,14 +60,7 @@ namespace en
 		void setClearColor(const Color& color) { _clearcolor = color; }
 		Color& getClearColor() { return _clearcolor; }
 
-		void drawLine(float x1, float y1, float x2, float y2, const Color& color);
-		void drawLine(const Vector2& v1, const Vector2& v2, const Color& color);
-
-		void drawPoint(float x, float y, const Color& color);
-		void drawPoint(const Vector2& vector, const Color& color); // Pass by value
-
-		void drawCircle(float x, float y, float radius, const Color& color);
-		void drawCircle(Vector2& position, float radius, const Color& color);
+		
 
 		int get_window_width() { return width; }
 		int get_window_height() { return height; }

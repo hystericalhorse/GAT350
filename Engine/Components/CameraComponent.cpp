@@ -10,10 +10,10 @@ namespace en
 
 	void CameraComponent::Update()
 	{
-		Matrix3x3 mxT = Matrix3x3::translate(-_owner->_Transform().position);
-		Matrix3x3 mxR = Matrix3x3::rotate(-en::radians(_owner->_Transform().rotation));
+		//Matrix3x3 mxT = Matrix3x3::translate(-_owner->_Transform().position);
+		//Matrix3x3 mxR = Matrix3x3::rotate(-en::radians(_owner->_Transform().rotation));
 
-		_view = mxT * mxR;
+		//_view = mxT * mxR;
 
 		__renderer.setView(_view);
 	}

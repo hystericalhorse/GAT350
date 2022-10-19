@@ -14,7 +14,7 @@ namespace en
 				if (renderComp) data.size = Vector2 { renderComp->_Source().w, renderComp->_Source().h };
 			}
 
-			data.size *= _owner->_Transform().scale * scale_offset;
+			// data.size *= _owner->_Transform().scale * scale_offset;
 
 			if (component->_body->GetType() == b2_staticBody)
 			{

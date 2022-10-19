@@ -22,8 +22,10 @@ namespace en
 		_color = color;
 	}
 
+
 	void Model::Draw(Renderer& renderer, const Vector2& position, float& angle, const Vector2& scale)
 	{
+		/******** DEPRECATED ********************
 		if (_points.size() == 1)
 		{
 			renderer.drawPoint(position, _color);
@@ -34,28 +36,32 @@ namespace en
 		{
 			renderer.drawLine(Vector2::rotate(_points[i] * scale, angle) + position, Vector2::rotate(_points[i + 1] * scale, angle) + position, _color);
 		}
+		**************************************/
 	}
 
 	void Model::Draw(Renderer& renderer, const Transform& transform)
-	{
+	{	
+		/******************* DEPRECATED	*********************************************
 		if (_points.empty()) return;
 
-		Matrix3x3 mx = transform.matrix;
+		//Matrix3x3 mx = transform.matrix;
 
 		if (_points.size() == 1)
 		{
-			renderer.drawPoint(transform.position, _color);
+			//renderer.drawPoint(transform.position, _color);
 			return;
 		}
 
 		for (size_t i = 0; i < _points.size() - 1; i++)
 		{
+			
 			renderer.drawLine(
 				Vector2::rotate(_points[i] * transform.scale, radians(transform.rotation)) + transform.position,
 				Vector2::rotate(_points[i + 1] * transform.scale, radians(transform.rotation)) + transform.position,
 				_color
 			);
-		}
+			
+		} ****************************************************************************/
 	}
 
 	bool Model::Create(std::string filename, ...)

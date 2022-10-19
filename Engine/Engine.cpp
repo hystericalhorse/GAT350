@@ -42,7 +42,6 @@ namespace en
 	{
 		REGISTER_CLASS(Actor);
 		REGISTER_CLASS(AudioComponent);
-		REGISTER_CLASS(ModelComponent);
 		REGISTER_CLASS(PhysicsComponent);
 		REGISTER_CLASS(RigidBodPhysicsComponent);
 		REGISTER_CLASS(CollisionComponent);
