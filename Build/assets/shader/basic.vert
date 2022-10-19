@@ -7,14 +7,14 @@ in layout(location = 2) vec2 v_uv; /* 2 */
 out vec3 color;
 out vec2 uv;
 
-uniform float scale;
 uniform mat4 transform;
+uniform mat4 mvp;
 
 void main()
 {
 	color = v_color;
 	uv = v_uv;
-	vec4 t_position = vec4(v_position * scale, 1.0) * transform;
+	vec4 t_position = mvp * vec4(v_position, 1.0);
 
 	gl_Position = t_position;
 }

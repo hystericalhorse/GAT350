@@ -1,6 +1,6 @@
 { 
     "program": "shader/basic.prog",
-    "texture": "texture/crate.png",
+    "texture": "texture/maze.png",
     "ambient":
 	  [ 
         1.0, 

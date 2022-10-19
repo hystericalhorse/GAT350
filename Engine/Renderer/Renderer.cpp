@@ -29,8 +29,6 @@ namespace en
 		IMG_Quit();
 	}
 
-	
-
 	void Renderer::newWindow(const char* title, int width, int height, bool fullscreen)
 	{
 		this->width = width;
