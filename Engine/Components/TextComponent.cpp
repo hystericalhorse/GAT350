@@ -11,12 +11,12 @@ namespace en
 
 	void TextComponent::Draw(Renderer& renderer)
 	{
-		__renderer.Draw(_texture, _owner->_Transform(), registration);
+		//__renderer.Draw(_texture, _owner->_Transform(), registration);
 	}
 
 	void TextComponent::setText(const std::string& text)
 	{
-		_texture->CreateFromSurface(_font->CreateSurface(text, color), __renderer);
+		// _texture->CreateFromSurface(_font->CreateSurface(text, color), __renderer);
 	}
 
 	bool TextComponent::Write(const rapidjson::Value& value) const

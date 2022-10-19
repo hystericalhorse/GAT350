@@ -138,6 +138,12 @@
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\Build\assets\material\box.mtrl" />
+    <None Include="..\Build\assets\shader\basic.frag" />
+    <None Include="..\Build\assets\shader\basic.prog" />
+    <None Include="..\Build\assets\shader\basic.vert" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\Engine\Engine.vcxproj">
       <Project>{0846d659-361b-4590-a178-fe55a15c23c3}</Project>
     </ProjectReference>

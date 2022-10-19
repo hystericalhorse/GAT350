@@ -4,6 +4,7 @@
 #include "document.h"
 #include <string>
 #include <vector>
+#include <glm/glm.hpp>
 
 #define READ_DATA(value, data) en::json::Get(value, #data, data)
 
@@ -26,6 +27,9 @@ namespace en
 		bool Get(const rapidjson::Value& value, const std::string& name, en::Rect& data);
 		bool Get(const rapidjson::Value& value, const std::string& name, std::vector<std::string>& data);
 		bool Get(const rapidjson::Value& value, const std::string& name, std::vector<int>& data);
+		bool Get(const rapidjson::Value& value, const std::string& name, glm::vec2& data);
+		bool Get(const rapidjson::Value& value, const std::string& name, glm::vec3& data);
+		bool Get(const rapidjson::Value& value, const std::string& name, glm::vec4& data);
 	}
 }
 
