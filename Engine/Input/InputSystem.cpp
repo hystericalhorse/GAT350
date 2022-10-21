@@ -11,6 +11,11 @@ namespace en
 	const uint32_t key_right	= SDL_SCANCODE_RIGHT;
 	const uint32_t key_escape	= SDL_SCANCODE_ESCAPE;
 
+	const uint32_t key_w		= SDL_SCANCODE_W;
+	const uint32_t key_a		= SDL_SCANCODE_A;
+	const uint32_t key_s		= SDL_SCANCODE_S;
+	const uint32_t key_d		= SDL_SCANCODE_D;
+
 	const uint32_t btn_left		= 0;
 	const uint32_t btn_middle	= 1;
 	const uint32_t btn_right	= 2;

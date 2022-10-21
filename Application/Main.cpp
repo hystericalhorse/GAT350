@@ -70,10 +70,27 @@ int main(int argc, char** argv)
 	material->Bind();
 
 	glm::mat4 model{ 1.0 };
+
+	float pitch = 0.0f;
+	float roll = 0.0f;
+	float yaw = 0.0f;
+
 	glm::mat4 projection = glm::perspective(45.0f, (float) en::__renderer.get_window_width() / en::__renderer.get_window_height(), 0.01f, 100.0f);
 
 	glm::vec3 cameraPosition = glm::vec3{ 0, 0, 3 };
 	float speed = 2;
+	float camRot = 0.0f;
+
+	std::vector<en::Transform> transforms;
+	int ii = 1000;
+	for (int i = 0; i < ii; i++)
+	{
+		transforms.push_back(
+			{
+				{ en::randomf(-20.0f, 20.0f), en::randomf(-20.0f, 20.0f), en::randomf(-20.0f, 20.0f)},
+				{ en::randomf(-180.0f, 180.0f), en::randomf(-180.0f, 180.0f), en::randomf(-180.0f, 180.0f) }
+			});
+	} 
 
 	bool quit = false;
 	while (!quit)
@@ -81,24 +98,35 @@ int main(int argc, char** argv)
 		en::Engine::Instance().Update();
 
 		if (en::__inputsys.getKeyState(en::key_escape) == en::InputSystem::KeyState::PRESSED) quit = true;
+		
+		if (en::__inputsys.getKeyState(en::key_up) == en::InputSystem::KeyState::HELD) cameraPosition.y += speed * en::__time.ci_time;
+		if (en::__inputsys.getKeyState(en::key_down) == en::InputSystem::KeyState::HELD) cameraPosition.y -= speed * en::__time.ci_time;
+		if (en::__inputsys.getKeyState(en::key_right) == en::InputSystem::KeyState::HELD) cameraPosition.x += speed * en::__time.ci_time;
+		if (en::__inputsys.getKeyState(en::key_left) == en::InputSystem::KeyState::HELD) cameraPosition.x -= speed * en::__time.ci_time;
+		
+		if (en::__inputsys.getKeyState(en::key_w) == en::InputSystem::KeyState::HELD) cameraPosition.z -= speed * en::__time.ci_time * 5;
+		if (en::__inputsys.getKeyState(en::key_s) == en::InputSystem::KeyState::HELD) cameraPosition.z += speed * en::__time.ci_time * 5;
+		if (en::__inputsys.getKeyState(en::key_a) == en::InputSystem::KeyState::HELD) camRot -= speed * en::__time.ci_time;
+		if (en::__inputsys.getKeyState(en::key_d) == en::InputSystem::KeyState::HELD) camRot += speed * en::__time.ci_time;
 
-		if (en::__inputsys.getKeyState(en::key_up) == en::InputSystem::KeyState::HELD) cameraPosition.y -= speed * en::__time.ci_time;
-		if (en::__inputsys.getKeyState(en::key_down) == en::InputSystem::KeyState::HELD) cameraPosition.y += speed * en::__time.ci_time;
-		if (en::__inputsys.getKeyState(en::key_right) == en::InputSystem::KeyState::HELD) cameraPosition.x -= speed * en::__time.ci_time;
-		if (en::__inputsys.getKeyState(en::key_left) == en::InputSystem::KeyState::HELD) cameraPosition.x += speed * en::__time.ci_time;
-
-		// GL
-		model = glm::eulerAngleXYZ(0.0f, en::__time.time, 0.0f);
-		glm::mat4 view = glm::lookAt(cameraPosition, cameraPosition + glm::vec3{ 0, 0, -1 }, glm::vec3{ 0, 1, 0 });
-		glm::mat4 mvp = projection * view * model;
-
-		// model view position matrix
-		material->getProgram()->setUniform("mvp", mvp);
-
-		en::__renderer.beginFrame({ 0.0f, 0.0f, 1.0f, 1.0f });
+		en::__renderer.beginFrame({ 0.553, 0.584, 0.631, 1.0f });
 
 		// DRAW
-		vb->Draw();
+		for (size_t i = 0; i < transforms.size(); i++)
+		{
+			// GL
+			// model = glm::eulerAngleXYZ(pitch, yaw, roll);
+
+			transforms[i].rotation += glm::vec3 { (5 * speed * en::__time.ci_time), (5 * speed * en::__time.ci_time), (5 * speed * en::__time.ci_time) };
+			glm::mat4 view = glm::lookAt(cameraPosition, cameraPosition + glm::vec3{ 0, 0, -1 }, glm::vec3{ 0, 1, 0 });
+			glm::mat4 mvp = projection * view * (glm::mat4) transforms[i];
+
+			// model view position matrix
+			material->getProgram()->setUniform("mvp", mvp);
+			
+			vb->Draw();
+		}
+
 
 		en::__renderer.endFrame();
 	}

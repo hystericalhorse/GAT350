@@ -18,6 +18,8 @@ namespace en
 		void CreateVertexBuffer(GLsizei size, GLsizei m_vertexCount, void* data);
 		void SetAttribute(int index, GLint size, GLsizei stride, size_t offset);
 
+		void CreateIndexBuffer(GLenum indexType, GLsizei count, void* data);
+
 		virtual void Draw(GLenum primitiveType = GL_TRIANGLES);
 
 		void Bind() { glBindVertexArray(_vao); }
@@ -27,6 +29,10 @@ namespace en
 
 		GLuint _vbo = 0; 
 		GLuint _vertexCount = 0; 
+		
+		GLuint _ibo = 0;
+		GLuint _indexCount = 0;
+		GLenum _indexType = 0;
 	};
 }
 

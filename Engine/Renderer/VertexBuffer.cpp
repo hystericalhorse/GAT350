@@ -33,9 +33,28 @@ namespace en
 		glVertexAttribPointer(index, size, GL_FLOAT, GL_FALSE, stride, (void*)(offset));
 	}
 
+	void VertexBuffer::CreateIndexBuffer(GLenum indexType, GLsizei count, void* data)
+	{
+		_indexType = indexType;
+		_indexType = count;
+
+		glGenBuffers(1, &_ibo);
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _ibo);
+		size_t indexSize = (_indexType == GL_UNSIGNED_SHORT) ? sizeof(GLushort) : sizeof(GLuint);
+		glBufferData(GL_ELEMENT_ARRAY_BUFFER, _indexCount * indexSize, data, GL_STATIC_DRAW);
+	}
+
 	void VertexBuffer::Draw(GLenum primitiveType)
 	{
 		glBindVertexArray(_vao);
-		glDrawArrays(primitiveType, 0, _vertexCount);
+
+		if (_ibo)
+		{
+			glDrawElements(primitiveType, _indexCount, _indexType, 0);
+		}
+		else if (_vbo)
+		{
+			glDrawArrays(primitiveType, 0, _vertexCount);
+		}
 	}
 }
