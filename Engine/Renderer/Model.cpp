@@ -66,11 +66,19 @@ namespace en
 
 	bool Model::Create(std::string filename, ...)
 	{
-		va_list args;
-		va_start(args, filename);
-		va_end(args);
+		Assimp::Importer importer;
 
-		return Model::Load(filename);
+		const aiScene* scene = importer.ReadFile(filename, aiProcess_Triangulate | aiProcess_GenSmoothNormals | aiProcess_FlipUVs | aiProcess_CalcTangentSpace);
+
+		if (!scene || scene->mFlags & AI_SCENE_FLAGS_INCOMPLETE || !scene->mRootNode)
+		{
+			LOG("error loading assimp file %s", importer.GetErrorString());
+			return false;
+		}
+
+		ProcessNode(scene->mRootNode, scene);
+
+		return true;
 	}
 
 	bool Model::Load(const std::string& filename)
@@ -111,5 +119,62 @@ namespace en
 		}
 
 		return r;
+	}
+
+	void Model::ProcessNode(aiNode* node, const aiScene* scene)
+	{
+		for (unsigned int i = 0; i < node->mNumMeshes; i++)
+		{
+			aiMesh* mesh = scene->mMeshes[node->mMeshes[i]];
+			ProcessMesh(mesh, scene);
+		}
+		// process the current node children 
+		for (unsigned int i = 0; i < node->mNumChildren; i++)
+		{
+			ProcessNode(node->mChildren[i], scene);
+		}
+	}
+
+	void Model::ProcessMesh(aiMesh* mesh, const aiScene* scene)
+	{
+		std::vector<vertex> vertices;
+
+		// get model vertex attributes 
+		for (size_t i = 0; i < mesh->mNumVertices; i++)
+		{
+			vertex vertex;
+
+			vertex.position = { mesh->mVertices[i].x, mesh->mVertices[i].y, mesh->mVertices[i].z };
+			if (mesh->mTextureCoords[0])
+			{
+				vertex.uv = { mesh->mTextureCoords[0][i].x, mesh -> mTextureCoords[0][i].y };
+			}
+			else
+			{
+				vertex.uv = { 0, 0 };
+			}
+
+			vertices.push_back(vertex);
+		}
+
+		// create vertex buffer and attributes 
+
+		_vertexBuffer.CreateVertexBuffer((GLsizei) (sizeof (vertex) * vertices.size()), (GLsizei) vertices.size(), vertices.data());
+		_vertexBuffer.SetAttribute(0, 3, sizeof(vertex), 0);
+		_vertexBuffer.SetAttribute(1, 2, sizeof(vertex), offsetof(vertex, uv));
+
+		// get model index vertices 
+		std::vector<GLuint> indices;
+		for (size_t i = 0; i < mesh->mNumFaces; i++)
+		{
+			aiFace face = mesh->mFaces[i];
+			for (size_t j = 0; j < face.mNumIndices; j++)
+			{
+				indices.push_back(face.mIndices[j]);
+			}
+		}
+
+		// create index vertex buffer 
+		_vertexBuffer.CreateIndexBuffer(GL_UNSIGNED_INT, (GLsizei) indices.size(), indices.data());
 	}
 }

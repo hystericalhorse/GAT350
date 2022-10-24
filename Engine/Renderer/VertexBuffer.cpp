@@ -36,7 +36,7 @@ namespace en
 	void VertexBuffer::CreateIndexBuffer(GLenum indexType, GLsizei count, void* data)
 	{
 		_indexType = indexType;
-		_indexType = count;
+		_indexCount = count;
 
 		glGenBuffers(1, &_ibo);
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _ibo);

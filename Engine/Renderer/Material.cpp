@@ -33,13 +33,9 @@ namespace en
 		return true;
 	}
 
-	void Material::Link()
-	{
-		_program->Link();
-	}
-
 	void Material::Bind()
 	{
+		_program->Link();
 		_program->Use();
 
 		for (auto& texture : _textures)

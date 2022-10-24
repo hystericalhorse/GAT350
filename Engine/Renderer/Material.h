@@ -16,7 +16,6 @@ namespace en
 	{
 	public:
 		virtual bool Create(std::string name, ...) override;
-		void Link();
 		void Bind();
 		std::shared_ptr<en::Program> getProgram() { return _program; }
 

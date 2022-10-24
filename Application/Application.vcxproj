@@ -139,9 +139,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Build\assets\material\box.mtrl" />
+    <None Include="..\Build\assets\material\ogre.mtrl" />
     <None Include="..\Build\assets\shader\basic.frag" />
     <None Include="..\Build\assets\shader\basic.prog" />
     <None Include="..\Build\assets\shader\basic.vert" />
+    <None Include="..\Build\assets\shader\basic_nocolor.frag" />
+    <None Include="..\Build\assets\shader\basic_nocolor.prog" />
+    <None Include="..\Build\assets\shader\basic_nocolor.vert" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Engine\Engine.vcxproj">

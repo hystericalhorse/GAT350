@@ -38,5 +38,17 @@
     <None Include="..\Build\assets\material\box.mtrl">
       <Filter>Resource Files\material</Filter>
     </None>
+    <None Include="..\Build\assets\shader\basic_nocolor.frag">
+      <Filter>Resource Files\shader</Filter>
+    </None>
+    <None Include="..\Build\assets\shader\basic_nocolor.prog">
+      <Filter>Resource Files\shader</Filter>
+    </None>
+    <None Include="..\Build\assets\shader\basic_nocolor.vert">
+      <Filter>Resource Files\shader</Filter>
+    </None>
+    <None Include="..\Build\assets\material\ogre.mtrl">
+      <Filter>Resource Files\material</Filter>
+    </None>
   </ItemGroup>
 </Project>

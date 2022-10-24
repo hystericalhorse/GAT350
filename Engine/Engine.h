@@ -6,6 +6,7 @@
 #include "Input/InputSystem.h"
 
 #include "Renderer/Renderer.h"
+#include "Renderer/Model.h"
 #include "Renderer/Text.h"
 #include "Renderer/Font.h"
 #include "Renderer/Shader.h"
