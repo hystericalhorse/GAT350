@@ -19,6 +19,9 @@
     <Filter Include="Resource Files\material">
       <UniqueIdentifier>{6f7322b9-c6b1-4577-a8af-9e5d26031a7a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\scene">
+      <UniqueIdentifier>{fd363720-8188-4857-ba23-0d8a7e9e672f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -49,6 +52,9 @@
     </None>
     <None Include="..\Build\assets\material\ogre.mtrl">
       <Filter>Resource Files\material</Filter>
+    </None>
+    <None Include="..\Build\assets\scene\basic.scene">
+      <Filter>Resource Files\scene</Filter>
     </None>
   </ItemGroup>
 </Project>

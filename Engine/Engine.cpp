@@ -42,6 +42,7 @@ namespace en
 	{
 		REGISTER_CLASS(Actor);
 		REGISTER_CLASS(AudioComponent);
+		REGISTER_CLASS(ModelComponent);
 		REGISTER_CLASS(PhysicsComponent);
 		REGISTER_CLASS(RigidBodPhysicsComponent);
 		REGISTER_CLASS(CollisionComponent);
@@ -51,6 +52,7 @@ namespace en
 		REGISTER_CLASS(SpriteAnimComponent);
 		REGISTER_CLASS(TextComponent);
 		REGISTER_CLASS(CameraComponent);
+		REGISTER_CLASS(CameraController);
 	}
 
 	InputSystem __inputsys;

@@ -15,9 +15,6 @@ namespace en
 		SDL_Init(SDL_INIT_VIDEO);
 
 		TTF_Init();
-
-		_view = Matrix3x3::identity;
-		_viewport = Matrix3x3::identity;
 	}
 
 	void Renderer::Shutdown()

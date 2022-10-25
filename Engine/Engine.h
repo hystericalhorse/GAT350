@@ -32,6 +32,7 @@
 #include "Framework/Singleton.h"
 #include "Framework/EventManager.h"
 
+#include "Components/ModelComponent.h"
 #include "Components/PlayerComponent.h"
 #include "Components/SpriteComponent.h"
 #include "Components/AudioComponent.h"
@@ -42,6 +43,7 @@
 #include "Components/SpriteAnimComponent.h"
 #include "Components/TilemapComponent.h"
 #include "Components/CameraComponent.h"
+#include "Components/CameraControllerComponent.h"
 
 #include "Components/CharacterComponent.h"
 

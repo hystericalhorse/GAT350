@@ -11,7 +11,7 @@ namespace en
 		glm::vec3 position{ 0.0f, 0.0f, 0.0f };
 		glm::vec3 scale{ 1.0f, 1.0f, 1.0f };
 		glm::vec3 rotation = { 0.0f, 0.0f, 0.0f };
-		glm::mat4 matrix;
+		glm::mat4 matrix { 1.0f };
 
 		Transform() = default;
 		Transform(const glm::vec3& pos, const glm::vec3 rot, const glm::vec3& scale = { 1.0f, 1.0f, 1.0f}) :
@@ -32,6 +32,10 @@ namespace en
 
 			return true;
 		}
+
+		glm::vec3 right() { return ((glm::mat4)(*this))[0]; }
+		glm::vec3 up() { return ((glm::mat4)(*this))[1]; }
+		glm::vec3 forward() { return ((glm::mat4)(*this))[2]; }
 
 		/******************* Legacy ******************
 		operator Matrix2x2 () const

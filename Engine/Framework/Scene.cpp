@@ -3,6 +3,8 @@
 #include "Renderer/Renderer.h"
 #include "Core/Logger.h"
 
+#include "Engine.h"
+
 #include <iostream>
 
 namespace en
@@ -25,6 +27,7 @@ namespace en
 
 	void Scene::Shutdown()
 	{
+
 		for (auto& actor : _actors)
 		{
 			actor->toggleActive(false);
@@ -36,6 +39,13 @@ namespace en
 
 	void Scene::Draw(Renderer& renderer)
 	{
+		auto camera = getActor("Camera");
+		if (camera)
+		{
+			__renderer.setView(camera->getComponent<en::CameraComponent>()->getView());
+			__renderer.setProjection(camera->getComponent<en::CameraComponent>()->getProjection());
+		}
+
 		for (auto& actor : _actors)
 		{
 			actor->Draw(renderer);

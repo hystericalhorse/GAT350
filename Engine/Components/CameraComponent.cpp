@@ -5,25 +5,24 @@ namespace en
 {
 	void CameraComponent::Init()
 	{
-		setViewport(_viewportsize);
+		
 	}
 
 	void CameraComponent::Update()
 	{
+		/* Deprecated ********************************************************************
 		//Matrix3x3 mxT = Matrix3x3::translate(-_owner->_Transform().position);
 		//Matrix3x3 mxR = Matrix3x3::rotate(-en::radians(_owner->_Transform().rotation));
 
 		//_view = mxT * mxR;
+		**********************************************************************************/
 
-		__renderer.setView(_view);
+		_view = glm::lookAt(_owner->_transform.position, _owner->_transform.position + _owner->_transform.forward(), glm::vec3{ 0, 1, 0 });
 	}
 
-	void CameraComponent::setViewport(const Vector2& size)
+	void CameraComponent::setPerspective(float fov, float aspect, float near, float far)
 	{
-		Matrix3x3 mxT = Matrix3x3::translate(size * 0.5f);
-
-		_viewport = mxT;
-		__renderer.setViewport(_viewport);
+		_projection = glm::perspective(glm::radians(fov), aspect, near, far);
 	}
 
 	bool CameraComponent::Write(const rapidjson::Value& value) const
@@ -35,9 +34,22 @@ namespace en
 
 	bool CameraComponent::Read(const rapidjson::Value& value)
 	{
-		Vector2& viewport_size = _viewportsize;
+		float fov;
+		READ_DATA(value, fov);
 
-		READ_DATA(value, viewport_size);
+		float aspect_ratio;
+		if (!READ_DATA(value, aspect_ratio))
+		{
+			aspect_ratio = __renderer.get_window_width() / (float)__renderer.get_window_height();
+		}
+
+		float near;
+		float far;
+
+		READ_DATA(value, near);
+		READ_DATA(value, far);
+
+		setPerspective(fov, aspect_ratio, near, far);
 
 		return true;
 	}
