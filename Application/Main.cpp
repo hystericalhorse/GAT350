@@ -59,20 +59,7 @@ int main(int argc, char** argv)
 	en::__renderer.newWindow("Application", 800, 600);
 
 	// LOAD SCENE
-	auto scene = std::make_unique<en::Scene>();
-
-	rapidjson::Document document;
-	bool success = en::json::Load("scene/basic.scene", document);
-	if (!success)
-	{
-		LOG("error loading scene file %s.", "scene/basic.scene");
-	}
-	else
-	{
-		scene->Read(document);
-		scene->Init();
-	}
-
+	// auto scene = en::__registry.Get<en::Scene>("scene/basic.scene");
 
 	glm::mat4 model{ 1.0 };
 
@@ -109,9 +96,9 @@ int main(int argc, char** argv)
 
 		if (en::__inputsys.getKeyState(en::key_escape) == en::InputSystem::KeyState::PRESSED) quit = true;
 		
-		scene->Update();
+		// scene->Update();
 
-		/*
+		
 		if (en::__inputsys.getKeyState(en::key_up) == en::InputSystem::KeyState::HELD) cameraPosition.y += speed * en::__time.ci_time;
 		if (en::__inputsys.getKeyState(en::key_down) == en::InputSystem::KeyState::HELD) cameraPosition.y -= speed * en::__time.ci_time;
 		if (en::__inputsys.getKeyState(en::key_right) == en::InputSystem::KeyState::HELD) cameraPosition.x += speed * en::__time.ci_time;
@@ -121,14 +108,14 @@ int main(int argc, char** argv)
 		if (en::__inputsys.getKeyState(en::key_s) == en::InputSystem::KeyState::HELD) cameraPosition.z += speed * en::__time.ci_time * 5;
 		if (en::__inputsys.getKeyState(en::key_a) == en::InputSystem::KeyState::HELD) camRot -= speed * en::__time.ci_time;
 		if (en::__inputsys.getKeyState(en::key_d) == en::InputSystem::KeyState::HELD) camRot += speed * en::__time.ci_time;
-		*/
+		
 
 		en::__renderer.beginFrame({0.0f, 0.0f, 0.0f, 1.0f});
 
 		// DRAW
-		scene->Draw(en::__renderer);
+		// scene->Draw(en::__renderer);
 
-		/*
+		
 		for (size_t i = 0; i < transforms.size(); i++)
 		{
 			// GL
@@ -143,12 +130,12 @@ int main(int argc, char** argv)
 
 			m->_vertexBuffer.Draw();
 		}
-		*/
+		
 
 		en::__renderer.endFrame();
 	}
 
-	scene->Remove();
+	//scene->Remove();
 	en::Engine::Instance().Shutdown();
 
 	return 0;

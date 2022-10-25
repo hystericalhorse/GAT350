@@ -2,6 +2,7 @@
 #define _SCENE_H
 
 #include "Actor.h"
+#include "Resource/Resource.h"
 
 #include <list>
 #include <memory>
@@ -11,7 +12,7 @@ namespace en
 	class Actor;
 	class Renderer;
 
-	class Scene : public GameObject, public Serializable
+	class Scene : public GameObject, public Serializable, public Resource
 	{
 	public:
 		Scene() = default;
@@ -21,6 +22,7 @@ namespace en
 		CLONE(Scene)
 
 		void Init() override;
+		bool Create(std::string name, ...) override;
 		void Update() override;
 		void Shutdown();
 		void Draw(Renderer& renderer);

@@ -14,6 +14,22 @@ namespace en
 		for (auto& actor : _actors) { actor->Init(); }
 	}
 
+	bool Scene::Create(std::string name, ...)
+	{
+		rapidjson::Document document;
+		bool success = en::json::Load(name, document);
+		if (!success)
+		{
+			LOG("Error loading scene %s.", name.c_str());
+			return false;
+		}
+		
+		Read(document);
+		Init();
+		
+		return true;
+	}
+
 	void Scene::Update()
 	{
 		auto iter = _actors.begin();
