@@ -12,9 +12,7 @@ uniform mat4 view;
 uniform mat4 projection;
 
 /* Light */
-uniform vec3 l_ambient;
-uniform vec3 l_diffuse;
-uniform vec3 l_specular;
+uniform vec3 l_color;
 uniform vec4 l_position;
 
 void main()
@@ -27,10 +25,9 @@ void main()
 	vec3 light_direction = normalize(vec3(l_position - position));
 
 	float intensity = max(dot(light_direction, normal), 0);
-	vec3 diffuse = l_diffuse * intensity;
+	vec3 diffuse = l_color * intensity;
 
-	// color = vec3(0.5, 0.5, 1.0);
-	color = diffuse * l_ambient;
+	color = vec3(1.0) + diffuse;
 
 	mat4 mvp = projection * view * model;
 	vec4 t_position = mvp * vec4(v_position, 1.0);

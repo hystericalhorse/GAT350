@@ -19,9 +19,7 @@ namespace en
 		void Bind();
 		std::shared_ptr<en::Program> getProgram() { return _program; }
 
-		glm::vec3 ambient;
-		glm::vec3 diffuse;
-		glm::vec3 specular;
+		glm::vec3 color;
 		float shininess = 0.0f;
 
 	private:

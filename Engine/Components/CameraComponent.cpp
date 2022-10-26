@@ -10,13 +10,6 @@ namespace en
 
 	void CameraComponent::Update()
 	{
-		/* Deprecated ********************************************************************
-		//Matrix3x3 mxT = Matrix3x3::translate(-_owner->_Transform().position);
-		//Matrix3x3 mxR = Matrix3x3::rotate(-en::radians(_owner->_Transform().rotation));
-
-		//_view = mxT * mxR;
-		**********************************************************************************/
-
 		_view = glm::lookAt(_owner->_transform.position, _owner->_transform.position + _owner->_transform.forward(), glm::vec3{ 0, 1, 0 });
 	}
 
