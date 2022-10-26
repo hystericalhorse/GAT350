@@ -37,6 +37,8 @@ namespace en
 			newShader(f_sh);
 		}
 
+		Link();
+
 		return true;
 	}
 

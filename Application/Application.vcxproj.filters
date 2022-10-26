@@ -29,6 +29,18 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\Build\assets\material\box.mtrl">
+      <Filter>Resource Files\material</Filter>
+    </None>
+    <None Include="..\Build\assets\material\ogre.mtrl">
+      <Filter>Resource Files\material</Filter>
+    </None>
+    <None Include="..\Build\assets\scene\basic.scene">
+      <Filter>Resource Files\scene</Filter>
+    </None>
+    <None Include="..\Build\assets\material\lit.mtrl">
+      <Filter>Resource Files\material</Filter>
+    </None>
     <None Include="..\Build\assets\shader\basic.frag">
       <Filter>Resource Files\shader</Filter>
     </None>
@@ -38,22 +50,16 @@
     <None Include="..\Build\assets\shader\basic.vert">
       <Filter>Resource Files\shader</Filter>
     </None>
-    <None Include="..\Build\assets\material\box.mtrl">
-      <Filter>Resource Files\material</Filter>
-    </None>
-    <None Include="..\Build\assets\shader\basic_nocolor.frag">
+    <None Include="..\Build\assets\shader\basic_lit.frag">
       <Filter>Resource Files\shader</Filter>
     </None>
-    <None Include="..\Build\assets\shader\basic_nocolor.prog">
+    <None Include="..\Build\assets\shader\basic_lit.prog">
       <Filter>Resource Files\shader</Filter>
     </None>
-    <None Include="..\Build\assets\shader\basic_nocolor.vert">
+    <None Include="..\Build\assets\shader\basic_lit.vert">
       <Filter>Resource Files\shader</Filter>
     </None>
-    <None Include="..\Build\assets\material\ogre.mtrl">
-      <Filter>Resource Files\material</Filter>
-    </None>
-    <None Include="..\Build\assets\scene\basic.scene">
+    <None Include="..\Build\assets\scene\lit.scene">
       <Filter>Resource Files\scene</Filter>
     </None>
   </ItemGroup>

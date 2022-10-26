@@ -53,6 +53,7 @@ namespace en
 		REGISTER_CLASS(TextComponent);
 		REGISTER_CLASS(CameraComponent);
 		REGISTER_CLASS(CameraController);
+		REGISTER_CLASS(LightComponent);
 	}
 
 	InputSystem __inputsys;

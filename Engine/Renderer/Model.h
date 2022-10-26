@@ -22,8 +22,9 @@ namespace en
 
 		struct vertex
 		{
-			glm::vec3 position;
-			glm::vec2 uv;
+			glm::vec3 position;	/* 0 */
+			glm::vec2 uv;		/* 1 */
+			glm::vec3 normal;	/* 2 */
 		};
 
 	public:

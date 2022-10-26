@@ -139,12 +139,12 @@ namespace en
 	{
 		std::vector<vertex> vertices;
 
-		// get model vertex attributes 
 		for (size_t i = 0; i < mesh->mNumVertices; i++)
 		{
 			vertex vertex;
 
 			vertex.position = { mesh->mVertices[i].x, mesh->mVertices[i].y, mesh->mVertices[i].z };
+			vertex.normal = { mesh->mNormals[i].x, mesh->mNormals[i].y, mesh->mNormals[i].z };
 			if (mesh->mTextureCoords[0])
 			{
 				vertex.uv = { mesh->mTextureCoords[0][i].x, mesh -> mTextureCoords[0][i].y };
@@ -157,13 +157,11 @@ namespace en
 			vertices.push_back(vertex);
 		}
 
-		// create vertex buffer and attributes 
-
 		_vertexBuffer.CreateVertexBuffer((GLsizei) (sizeof (vertex) * vertices.size()), (GLsizei) vertices.size(), vertices.data());
 		_vertexBuffer.SetAttribute(0, 3, sizeof(vertex), 0);
 		_vertexBuffer.SetAttribute(1, 2, sizeof(vertex), offsetof(vertex, uv));
+		_vertexBuffer.SetAttribute(2, 3, sizeof(vertex), offsetof(vertex, normal));
 
-		// get model index vertices 
 		std::vector<GLuint> indices;
 		for (size_t i = 0; i < mesh->mNumFaces; i++)
 		{
@@ -174,7 +172,6 @@ namespace en
 			}
 		}
 
-		// create index vertex buffer 
 		_vertexBuffer.CreateIndexBuffer(GL_UNSIGNED_INT, (GLsizei) indices.size(), indices.data());
 	}
 }

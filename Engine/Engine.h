@@ -44,6 +44,7 @@
 #include "Components/TilemapComponent.h"
 #include "Components/CameraComponent.h"
 #include "Components/CameraControllerComponent.h"
+#include "Components/LightComponent.h"
 
 #include "Components/CharacterComponent.h"
 

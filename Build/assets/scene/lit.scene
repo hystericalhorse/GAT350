@@ -1,0 +1,86 @@
+{ 
+  "actors": [
+    {
+      "type": "Actor",
+      "name": "Object",
+      "transform": {
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": [
+          0.0,
+          180.0,
+          0.0
+        ]
+      },
+      "components": [
+        {
+          "type": "ModelComponent",
+          "model": "model/ogre.obj",
+          "material": "material/lit.mtrl"
+        }
+      ]
+    },
+    {
+      "type": "Actor",
+      "name": "Light",
+      "transform": {
+        "position": [
+          5.0,
+          0.0,
+          0.0
+        ]
+      },
+      "components": [
+        {
+          "type": "LightComponent",
+          "ambient": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "diffuse": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "specular": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        }
+      ]
+    },
+    { 
+      "type": "Actor", 
+      "name": "Camera", 
+      "transform": { 
+        "position": [ 
+           0.0, 
+           0.0, 
+          -4.0
+        ] 
+      }, 
+      "components": [ 
+        { 
+          "type": "CameraComponent", 
+          "fov": 45.0, 
+          "near": 0.1, 
+          "far": 100.0
+        }, 
+        { 
+          "type": "CameraController", 
+          "speed": 4.0
+        } 
+      ] 
+    }
+  ] 
+}

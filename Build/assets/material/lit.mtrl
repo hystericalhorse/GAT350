@@ -1,5 +1,5 @@
 { 
-    "program": "shader/basic.prog",
+    "program": "shader/basic_lit.prog",
     "texture": "texture/ogre_diffuse.bmp",
     "ambient":
 	  [ 
