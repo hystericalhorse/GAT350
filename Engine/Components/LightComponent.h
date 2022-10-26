@@ -16,9 +16,7 @@ namespace en
 		virtual bool Read(const rapidjson::Value& value) override;
 
 	public:
-		glm::vec3 ambient { 0.0f };
-		glm::vec3 diffuse { 1.0f };
-		glm::vec3 specular { 1.0f };
+		glm::vec3 color { 0.0f };
 	};
 }
 

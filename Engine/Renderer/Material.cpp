@@ -25,9 +25,7 @@ namespace en
 			_textures.push_back(en::__registry.Get<en::Texture>(texture));
 		}
 
-		READ_DATA(document, ambient);
-		READ_DATA(document, diffuse);
-		READ_DATA(document, specular);
+		READ_DATA(document, color);
 		READ_DATA(document, shininess);
 
 		return true;

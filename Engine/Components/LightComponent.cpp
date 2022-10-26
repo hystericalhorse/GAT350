@@ -11,9 +11,9 @@ namespace en
 
 		for (auto& program : programs)
 		{
-			program->setUniform("l_ambient", ambient);
-			program->setUniform("l_diffuse", diffuse);
-			program->setUniform("l_specular", specular);
+			program->Use();
+
+			program->setUniform("l_color", color);
 			program->setUniform("l_position", position);
 		}
 	}
@@ -25,9 +25,7 @@ namespace en
 
 	bool LightComponent::Read(const rapidjson::Value& value)
 	{
-		READ_DATA(value, ambient);
-		READ_DATA(value, diffuse);
-		READ_DATA(value, specular);
+		READ_DATA(value, color);
 
 		return true;
 	}
