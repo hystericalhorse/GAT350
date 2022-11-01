@@ -138,17 +138,16 @@
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\Build\assets\material\box.mtrl" />
-    <None Include="..\Build\assets\material\lit.mtrl" />
-    <None Include="..\Build\assets\material\ogre.mtrl" />
-    <None Include="..\Build\assets\scene\basic.scene" />
-    <None Include="..\Build\assets\scene\lit.scene" />
-    <None Include="..\Build\assets\shader\basic.frag" />
-    <None Include="..\Build\assets\shader\basic.prog" />
-    <None Include="..\Build\assets\shader\basic.vert" />
-    <None Include="..\Build\assets\shader\basic_lit.frag" />
-    <None Include="..\Build\assets\shader\basic_lit.prog" />
-    <None Include="..\Build\assets\shader\basic_lit.vert" />
+    <None Include="..\Build\assets\material\multi.mtrl" />
+    <None Include="..\Build\assets\material\phong.mtrl" />
+    <None Include="..\Build\assets\scene\texture.scene" />
+    <None Include="..\Build\assets\scene\phong.scene" />
+    <None Include="..\Build\assets\shader\basic_phong.frag" />
+    <None Include="..\Build\assets\shader\basic_phong.prog" />
+    <None Include="..\Build\assets\shader\basic_phong.vert" />
+    <None Include="..\Build\assets\shader\texture_phong.frag" />
+    <None Include="..\Build\assets\shader\texture_phong.prog" />
+    <None Include="..\Build\assets\shader\texture_phong.vert" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Engine\Engine.vcxproj">

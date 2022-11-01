@@ -1,0 +1,165 @@
+{ 
+  "actors": [
+    {
+      "type": "Actor",
+      "name": "Object",
+      "transform": {
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": [
+          0.0,
+          180.0,
+          180.0
+        ]
+      },
+      "components": [
+        {
+          "type": "ModelComponent",
+          "model": "model/sphere.obj",
+          "material": "material/phong.mtrl"
+        }
+      ]
+    },
+	{
+      "type": "Actor",
+      "name": "Cube",
+      "transform": {
+        "position": [
+          3.0,
+          -0.5,
+          4.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": [
+          0.0,
+          180.0,
+          180.0
+        ]
+      },
+      "components": [
+        {
+          "type": "ModelComponent",
+          "model": "model/cube.obj",
+          "material": "material/cube.mtrl"
+        }
+      ]
+    },
+	{
+      "type": "Actor",
+      "name": "Floor",
+      "transform": {
+        "position": [
+           0.0,
+          -1.0,
+           0.0
+        ],
+        "scale": [
+          10.0,
+          10.0,
+          10.0
+        ],
+        "rotation": [
+          -90.0,
+          0.0,
+          0.0
+        ]
+      },
+      "components": [
+        {
+          "type": "ModelComponent",
+          "model": "model/quad.obj",
+          "material": "material/floor.mtrl"
+        }
+      ]
+    },
+	{
+      "type": "Actor",
+      "name": "Wall",
+      "transform": {
+        "position": [
+           0.0,
+           0.0,
+           10.0
+        ],
+        "scale": [
+          10.0,
+          10.0,
+          10.0
+        ],
+        "rotation": [
+          0.0,
+          180.0,
+          0.0
+        ]
+      },
+      "components": [
+        {
+          "type": "ModelComponent",
+          "model": "model/quad.obj",
+          "material": "material/wall.mtrl"
+        }
+      ]
+    },
+    {
+      "type": "Actor",
+      "name": "Light",
+      "transform": {
+        "position": [
+          5.0,
+          0.0,
+          0.0
+        ]
+      },
+      "components": [
+        {
+          "type": "LightComponent",
+          "color": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "ambient": [
+            0.2,
+            0.2,
+            0.2
+          ]
+        }
+      ]
+    },
+    { 
+      "type": "Actor", 
+      "name": "Camera", 
+      "transform": { 
+        "position": [ 
+           0.0,
+           0.0,
+          -4.0
+        ] 
+      }, 
+      "components": [ 
+        { 
+          "type": "CameraComponent", 
+          "fov": 45.0, 
+          "near": 0.1, 
+          "far": 100.0
+        },
+        { 
+          "type": "CameraController", 
+          "speed": 4.0
+        }
+      ]
+    }
+  ]
+}

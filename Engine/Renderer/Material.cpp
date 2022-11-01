@@ -33,8 +33,10 @@ namespace en
 
 	void Material::Bind()
 	{
-		_program->Link();
 		_program->Use();
+
+		_program->setUniform("m_color", color);
+		_program->setUniform("m_shininess", shininess);
 
 		for (auto& texture : _textures)
 		{

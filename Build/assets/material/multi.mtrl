@@ -1,0 +1,11 @@
+{ 
+    "program": "shader/texture_phong.prog",
+    "texture": "texture/maze.png",
+    "color":
+	  [
+        1.0,
+        1.0,
+        1.0
+    ],
+    "shininess": 100.0
+}

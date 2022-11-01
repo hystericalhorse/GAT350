@@ -1,15 +1,10 @@
 #version 430 core
 
-in layout(location = 0) vec3 v_position; /* 0 */
-in layout(location = 1) vec2 v_uv; /* 1 */
-in layout(location = 2) vec3 v_normal; /* 2 */
+in vec2 uv;
+in vec4 position;
+in vec3 normal;
 
-out vec2 uv;
-out vec3 color;
-
-uniform mat4 model;
-uniform mat4 view;
-uniform mat4 projection;
+out vec4 f_color;
 
 /* Light */
 uniform vec3 l_ambient;
@@ -19,20 +14,20 @@ uniform vec4 l_position;
 uniform vec3 m_color;
 uniform float m_shininess;
 
+uniform sampler2D texture_1;
+
 void main()
 {
-	uv = v_uv;
-
+	// Ambient
 	vec3 ambient = l_ambient * m_color;
 
-	mat4 model_view = view * model;
-	vec3 normal = mat3(model_view) * v_normal;
-	vec4 position = model_view * vec4(v_position, 1);
+	// Diffuse
 	vec3 light_direction = normalize(vec3(l_position - position));
 
 	float intensity = max(dot(light_direction, normal), 0);
 	vec3 diffuse = l_color * intensity;
 
+	// Specular
 	vec3 specular = vec3(0.0);
 	if (intensity > 0)
 	{
@@ -46,9 +41,7 @@ void main()
 		specular = l_color * m_color * intensity;
 	}
 
-	color = ambient + diffuse + specular;
+	vec2 t_uv = uv * vec2(2);
 
-	mat4 mvp = projection * view * model;
-
-	gl_Position = mvp * vec4(v_position, 1.0);
+	f_color = vec4(ambient + diffuse, 1.0) * texture(texture_1, t_uv) + vec4(specular, 1.0);
 }

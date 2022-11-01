@@ -15,7 +15,7 @@ int main(int argc, char** argv)
 	en::__renderer.newWindow("Application", 800, 600);
 
 	// LOAD SCENE
-	auto scene = en::__registry.Get<en::Scene>("scene/lit.scene");
+	auto scene = en::__registry.Get<en::Scene>("scene/texture.scene");
 
 	bool quit = false;
 	while (!quit)
@@ -29,10 +29,10 @@ int main(int argc, char** argv)
 		auto actor = scene->getActor("Object");
 		if (actor)
 		{
-			actor->_transform.rotation.y += en::__time.ci_time * 45.0f;
+			// actor->_transform.rotation.y += en::__time.ci_time * 45.0f;
 		}
 
-		en::__renderer.beginFrame({0.0f, 0.0f, 0.0f, 1.0f});
+		en::__renderer.beginFrame({ 0.8f, 0.8f, 0.8f, 1.0f});
 
 		// DRAW
 		scene->Draw(en::__renderer);

@@ -12,10 +12,12 @@ namespace en
 		for (auto& program : programs)
 		{
 			program->Use();
-
+			program->setUniform("l_ambient", ambient);
 			program->setUniform("l_color", color);
 			program->setUniform("l_position", position);
 		}
+
+		
 	}
 
 	bool LightComponent::Write(const rapidjson::Value& value) const
@@ -26,6 +28,7 @@ namespace en
 	bool LightComponent::Read(const rapidjson::Value& value)
 	{
 		READ_DATA(value, color);
+		READ_DATA(value, ambient);
 
 		return true;
 	}

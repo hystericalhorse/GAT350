@@ -1,0 +1,11 @@
+{ 
+    "program": "shader/basic_flat.prog",
+    "texture": "texture/obama.png",
+    "color":
+	  [
+        1.0,
+        1.0,
+        1.0
+    ],
+    "shininess": 256.0
+}

@@ -29,38 +29,35 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\Build\assets\material\box.mtrl">
-      <Filter>Resource Files\material</Filter>
+    <None Include="..\Build\assets\shader\basic_phong.frag">
+      <Filter>Resource Files\shader</Filter>
     </None>
-    <None Include="..\Build\assets\material\ogre.mtrl">
-      <Filter>Resource Files\material</Filter>
+    <None Include="..\Build\assets\shader\basic_phong.prog">
+      <Filter>Resource Files\shader</Filter>
     </None>
-    <None Include="..\Build\assets\scene\basic.scene">
+    <None Include="..\Build\assets\shader\basic_phong.vert">
+      <Filter>Resource Files\shader</Filter>
+    </None>
+    <None Include="..\Build\assets\scene\phong.scene">
       <Filter>Resource Files\scene</Filter>
     </None>
-    <None Include="..\Build\assets\material\lit.mtrl">
+    <None Include="..\Build\assets\material\phong.mtrl">
       <Filter>Resource Files\material</Filter>
     </None>
-    <None Include="..\Build\assets\shader\basic.frag">
-      <Filter>Resource Files\shader</Filter>
-    </None>
-    <None Include="..\Build\assets\shader\basic.prog">
-      <Filter>Resource Files\shader</Filter>
-    </None>
-    <None Include="..\Build\assets\shader\basic.vert">
-      <Filter>Resource Files\shader</Filter>
-    </None>
-    <None Include="..\Build\assets\shader\basic_lit.frag">
-      <Filter>Resource Files\shader</Filter>
-    </None>
-    <None Include="..\Build\assets\shader\basic_lit.prog">
-      <Filter>Resource Files\shader</Filter>
-    </None>
-    <None Include="..\Build\assets\shader\basic_lit.vert">
-      <Filter>Resource Files\shader</Filter>
-    </None>
-    <None Include="..\Build\assets\scene\lit.scene">
+    <None Include="..\Build\assets\scene\texture.scene">
       <Filter>Resource Files\scene</Filter>
+    </None>
+    <None Include="..\Build\assets\material\multi.mtrl">
+      <Filter>Resource Files\material</Filter>
+    </None>
+    <None Include="..\Build\assets\shader\texture_phong.prog">
+      <Filter>Resource Files\shader</Filter>
+    </None>
+    <None Include="..\Build\assets\shader\texture_phong.vert">
+      <Filter>Resource Files\shader</Filter>
+    </None>
+    <None Include="..\Build\assets\shader\texture_phong.frag">
+      <Filter>Resource Files\shader</Filter>
     </None>
   </ItemGroup>
 </Project>

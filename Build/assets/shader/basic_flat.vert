@@ -5,7 +5,7 @@ in layout(location = 1) vec2 v_uv; /* 1 */
 in layout(location = 2) vec3 v_normal; /* 2 */
 
 out vec2 uv;
-out vec3 color;
+flat out vec3 color;
 
 uniform mat4 model;
 uniform mat4 view;

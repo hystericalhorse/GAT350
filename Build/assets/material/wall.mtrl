@@ -1,0 +1,11 @@
+{ 
+    "program": "shader/basic_phong.prog",
+    "texture": "texture/xp.jpg",
+    "color":
+	  [
+        0.0,
+        0.0,
+        0.0
+    ],
+    "shininess": 0.0
+}

@@ -1,6 +1,6 @@
 { 
-    "program": "shader/basic_lit.prog",
-    "texture": "texture/ogre_diffuse.bmp",
+    "program": "shader/basic_phong.prog",
+    "texture": "texture/maze.png",
     "color":
 	  [
         1.0,
