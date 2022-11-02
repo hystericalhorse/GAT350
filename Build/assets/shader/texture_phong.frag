@@ -13,6 +13,8 @@ uniform vec4 l_position;
 
 uniform vec3 m_color;
 uniform float m_shininess;
+uniform vec2 m_tiling;
+uniform vec2 m_offset;
 
 uniform sampler2D texture_1;
 
@@ -41,7 +43,7 @@ void main()
 		specular = l_color * m_color * intensity;
 	}
 
-	vec2 t_uv = uv * vec2(2);
+	vec2 t_uv = (uv * m_tiling) + m_offset;
 
 	f_color = vec4(ambient + diffuse, 1.0) * texture(texture_1, t_uv) + vec4(specular, 1.0);
 }

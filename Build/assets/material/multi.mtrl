@@ -1,11 +1,13 @@
 { 
     "program": "shader/texture_phong.prog",
-    "texture": "texture/maze.png",
+    "texture": "texture/obama.png",
     "color":
 	  [
         1.0,
         1.0,
         1.0
     ],
-    "shininess": 100.0
+  "shininess": 100.0,
+  "tiling": [ 1.0, 1.0 ],
+  "offset": [ 1.0, 1.0 ]
 }

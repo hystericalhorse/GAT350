@@ -81,7 +81,6 @@ namespace en
 		void setProjection(const glm::mat4& projection) { _projection = projection; }
 		glm::mat4& getProjection() { return _projection; }
 
-
 	private:
 		int width = 0;
 		int height = 0;

@@ -24,6 +24,12 @@ int main(int argc, char** argv)
 
 		if (en::__inputsys.getKeyState(en::key_escape) == en::InputSystem::KeyState::PRESSED) quit = true;
 		
+		auto material = en::__registry.Get<en::Material>("material/multi.mtrl");
+		if (material)
+		{
+			// material->uv_offset.x += en::__time.ci_time * 1;
+		}
+
 		scene->Update();
 
 		auto actor = scene->getActor("Object");

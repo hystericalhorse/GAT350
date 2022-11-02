@@ -28,6 +28,12 @@ namespace en
 		READ_DATA(document, color);
 		READ_DATA(document, shininess);
 
+		glm::vec2& tiling = uv_tiling;
+		glm::vec2& offset = uv_offset;
+
+		READ_DATA(document, tiling);
+		READ_DATA(document, offset);
+
 		return true;
 	}
 
@@ -37,6 +43,9 @@ namespace en
 
 		_program->setUniform("m_color", color);
 		_program->setUniform("m_shininess", shininess);
+
+		_program->setUniform("m_tiling", uv_tiling);
+		_program->setUniform("m_offset", uv_offset);
 
 		for (auto& texture : _textures)
 		{

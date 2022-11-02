@@ -20,6 +20,8 @@ namespace en
 		std::shared_ptr<en::Program> getProgram() { return _program; }
 
 		glm::vec3 color;
+		glm::vec2 uv_tiling { 1.0, 1.0 };
+		glm::vec2 uv_offset { 0.0, 0.0 };
 		float shininess = 0.0f;
 
 	private:

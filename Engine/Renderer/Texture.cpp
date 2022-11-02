@@ -22,8 +22,8 @@ namespace en
 		GLenum format = (_surface->format->BytesPerPixel == 4) ? GL_RGBA : GL_RGB;
 		glTexImage2D(_target, 0, format, _surface->w, _surface->h, 0, format, GL_UNSIGNED_BYTE, _surface->pixels);
 
-		glTexParameteri(_target, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-		glTexParameteri(_target, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+		glTexParameteri(_target, GL_TEXTURE_MIN_FILTER, GL_NEAREST); // GL_NEAREST FOR RETRO LOOK
+		glTexParameteri(_target, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 		glTexParameteri(_target, GL_TEXTURE_WRAP_S, GL_REPEAT);
 		glTexParameteri(_target, GL_TEXTURE_WRAP_T, GL_REPEAT);
 
