@@ -18,9 +18,9 @@ namespace en
 
 		_program = en::__registry.Get<en::Program>(program);
 
-		std::string texture;
-		READ_DATA(document, texture);
-		if (!texture.empty())
+		std::vector<std::string> textures;
+		READ_DATA(document, textures);
+		for (auto& texture : textures)
 		{
 			_textures.push_back(en::__registry.Get<en::Texture>(texture));
 		}
@@ -47,9 +47,15 @@ namespace en
 		_program->setUniform("m_tiling", uv_tiling);
 		_program->setUniform("m_offset", uv_offset);
 
-		for (auto& texture : _textures)
+		for (size_t i = 0; i < _textures.size(); i++)
 		{
-			texture->Bind();
+			if (i > 31)
+			{
+				LOG("ERROR: OPENGL DOES NOT SUPPORT MORE THAN 31 CONCURRENT TEXTURES.");
+				return;
+			}
+			_textures[i]->Activate(GL_TEXTURE0 + (int) i);
+			_textures[i]->Bind();
 		}
 	}
 }

@@ -21,6 +21,7 @@
 #include "Core/Logger.h"
 #include "Core/File.h"
 #include "Core/Time.h"
+#include "Core/Utils.h"
 
 #include "Audio/AudioSys.h"
 

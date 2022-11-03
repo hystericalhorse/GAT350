@@ -2,6 +2,7 @@
 #define _RESOURCE_MANAGER_H
 
 #include "Resource.h"
+#include "Core/Utils.h"
 
 #include <map>
 #include <string>
@@ -33,6 +34,8 @@ namespace en
 	template <typename T, typename ... T_args>
 	inline std::shared_ptr<T> ResourceManager::Get(std::string key, T_args... args)
 	{
+		key = en::Utils::make_lowercase(key);
+
 		if (_resources.find(key) != _resources.end())
 		{
 			return std::dynamic_pointer_cast<T>(_resources[key]);

@@ -16,14 +16,14 @@
         ],
         "rotation": [
           0.0,
-          270.0,
-          180.0
+          30.0,
+          0.0
         ]
       },
       "components": [
         {
           "type": "ModelComponent",
-          "model": "model/sphere.obj",
+          "model": "model/cube.obj",
           "material": "material/multi.mtrl"
         }
       ]
@@ -33,7 +33,7 @@
       "name": "Light",
       "transform": {
         "position": [
-          -3.0,
+           0.0,
            0.0,
           -2.0
         ]

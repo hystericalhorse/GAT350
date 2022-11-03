@@ -16,7 +16,9 @@ uniform float m_shininess;
 uniform vec2 m_tiling;
 uniform vec2 m_offset;
 
-uniform sampler2D texture_1;
+layout (binding = 0) uniform sampler2D texture_1; /* 0 Diffuse */
+layout (binding = 1) uniform sampler2D texture_2; /* 1 Specular */
+layout (binding = 2) uniform sampler2D texture_3; /* 2 Emissive */
 
 void main()
 {
@@ -35,15 +37,16 @@ void main()
 	{
 		vec3 reflection = reflect(-light_direction, normal);
 	
-		vec3 view_direction = normalize(vec3(-position));
+		vec3 view_direction = normalize(-vec3(position));
 
-		intensity = max(dot(light_direction, view_direction), 0);
-		intensity = pow(intensity, m_shininess);
+		intensity = max(dot(reflection, view_direction), 0);
+		//intensity = pow(intensity, 256.0);
+		//intensity = pow(intensity, m_shininess);
 
 		specular = l_color * m_color * intensity;
 	}
 
 	vec2 t_uv = (uv * m_tiling) + m_offset;
 
-	f_color = vec4(ambient + diffuse, 1.0) * texture(texture_1, t_uv) + vec4(specular, 1.0);
+	f_color = texture(texture_3, t_uv) + vec4(ambient + diffuse, 1.0) * texture(texture_1, t_uv) + (vec4(specular, 1.0) * texture(texture_2, t_uv));
 }

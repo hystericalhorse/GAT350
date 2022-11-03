@@ -27,7 +27,7 @@ int main(int argc, char** argv)
 		auto material = en::__registry.Get<en::Material>("material/multi.mtrl");
 		if (material)
 		{
-			// material->uv_offset.x += en::__time.ci_time * 1;
+			
 		}
 
 		scene->Update();
@@ -35,7 +35,13 @@ int main(int argc, char** argv)
 		auto actor = scene->getActor("Object");
 		if (actor)
 		{
-			// actor->_transform.rotation.y += en::__time.ci_time * 45.0f;
+			//actor->_transform.rotation.y -= en::__time.ci_time * 15.0f;
+		}
+
+		auto light = scene->getActor("Light");
+		if (light)
+		{
+			//light->_transform.position.x = std::sin(en::__time.time);
 		}
 
 		en::__renderer.beginFrame({ 0.8f, 0.8f, 0.8f, 1.0f});
