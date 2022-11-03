@@ -44,7 +44,7 @@ int main(int argc, char** argv)
 			//light->_transform.position.x = std::sin(en::__time.time);
 		}
 
-		en::__renderer.beginFrame({ 0.8f, 0.8f, 0.8f, 1.0f});
+		en::__renderer.beginFrame({ 0.0f, 0.0f, 0.0f, 1.0f});
 
 		// DRAW
 		scene->Draw(en::__renderer);

@@ -20,24 +20,19 @@ layout (binding = 0) uniform sampler2D texture_1; /* 0 Diffuse */
 layout (binding = 1) uniform sampler2D texture_2; /* 1 Specular */
 layout (binding = 2) uniform sampler2D texture_3; /* 2 Emissive */
 
-void phong(vec3 position, vec3 normal, out vec3 ambient, out vec3 diffuse, out vec3 specular)
-{
-	
-}
-
-void main()
+void phong(vec4 position, vec3 normal, out vec3 ambient, out vec3 diffuse, out vec3 specular)
 {
 	// Ambient
-	vec3 ambient = l_ambient * m_color;
+	ambient = l_ambient * m_color;
 
 	// Diffuse
 	vec3 light_direction = normalize(vec3(l_position - position));
 
 	float intensity = max(dot(light_direction, normal), 0);
-	vec3 diffuse = l_color * intensity;
+	diffuse = l_color * intensity;
 
 	// Specular
-	vec3 specular = vec3(0.0);
+	specular = vec3(0.0);
 	if (intensity > 0)
 	{
 		vec3 reflection = reflect(-light_direction, normal);
@@ -49,6 +44,15 @@ void main()
 
 		specular = l_color * m_color * intensity;
 	}
+}
+
+void main()
+{
+	vec3 ambient;
+	vec3 diffuse;
+	vec3 specular;
+
+	phong(position, normal, ambient, diffuse, specular);
 
 	vec2 t_uv = (uv * m_tiling) + m_offset;
 
