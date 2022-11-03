@@ -35,7 +35,7 @@ int main(int argc, char** argv)
 		auto actor = scene->getActor("Object");
 		if (actor)
 		{
-			//actor->_transform.rotation.y -= en::__time.ci_time * 15.0f;
+			actor->_transform.rotation.y -= en::__time.ci_time * 15.0f;
 		}
 
 		auto light = scene->getActor("Light");
