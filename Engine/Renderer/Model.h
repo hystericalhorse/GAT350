@@ -25,6 +25,7 @@ namespace en
 			glm::vec3 position;	/* 0 */
 			glm::vec2 uv;		/* 1 */
 			glm::vec3 normal;	/* 2 */
+			glm::vec3 tangent;	/* 3 */
 		};
 
 	public:

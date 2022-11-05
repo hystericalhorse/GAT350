@@ -15,7 +15,7 @@ int main(int argc, char** argv)
 	en::__renderer.newWindow("Application", 800, 600);
 
 	// LOAD SCENE
-	auto scene = en::__registry.Get<en::Scene>("scene/texture.scene");
+	auto scene = en::__registry.Get<en::Scene>("scene/normal.scene");
 
 	bool quit = false;
 	while (!quit)

@@ -29,15 +29,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\Build\assets\shader\basic_phong.frag">
-      <Filter>Resource Files\shader</Filter>
-    </None>
-    <None Include="..\Build\assets\shader\basic_phong.prog">
-      <Filter>Resource Files\shader</Filter>
-    </None>
-    <None Include="..\Build\assets\shader\basic_phong.vert">
-      <Filter>Resource Files\shader</Filter>
-    </None>
     <None Include="..\Build\assets\scene\phong.scene">
       <Filter>Resource Files\scene</Filter>
     </None>
@@ -58,6 +49,21 @@
     </None>
     <None Include="..\Build\assets\shader\texture_phong.frag">
       <Filter>Resource Files\shader</Filter>
+    </None>
+    <None Include="..\Build\assets\shader\normal_phong.frag">
+      <Filter>Resource Files\shader</Filter>
+    </None>
+    <None Include="..\Build\assets\shader\normal_phong.prog">
+      <Filter>Resource Files\shader</Filter>
+    </None>
+    <None Include="..\Build\assets\shader\normal_phong.vert">
+      <Filter>Resource Files\shader</Filter>
+    </None>
+    <None Include="..\Build\assets\scene\normal.scene">
+      <Filter>Resource Files\scene</Filter>
+    </None>
+    <None Include="..\Build\assets\material\normal.mtrl">
+      <Filter>Resource Files\material</Filter>
     </None>
   </ItemGroup>
 </Project>

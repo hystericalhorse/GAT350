@@ -145,6 +145,7 @@ namespace en
 
 			vertex.position = { mesh->mVertices[i].x, mesh->mVertices[i].y, mesh->mVertices[i].z };
 			vertex.normal = { mesh->mNormals[i].x, mesh->mNormals[i].y, mesh->mNormals[i].z };
+			vertex.tangent = { mesh->mTangents[i].x, mesh->mTangents[i].y, mesh->mTangents[i].z };
 			if (mesh->mTextureCoords[0])
 			{
 				vertex.uv = { mesh->mTextureCoords[0][i].x, mesh -> mTextureCoords[0][i].y };
@@ -161,6 +162,7 @@ namespace en
 		_vertexBuffer.SetAttribute(0, 3, sizeof(vertex), 0);
 		_vertexBuffer.SetAttribute(1, 2, sizeof(vertex), offsetof(vertex, uv));
 		_vertexBuffer.SetAttribute(2, 3, sizeof(vertex), offsetof(vertex, normal));
+		_vertexBuffer.SetAttribute(3, 3, sizeof(vertex), offsetof(vertex, tangent));
 
 		std::vector<GLuint> indices;
 		for (size_t i = 0; i < mesh->mNumFaces; i++)
