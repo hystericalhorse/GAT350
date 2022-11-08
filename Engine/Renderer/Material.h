@@ -16,13 +16,12 @@ namespace en
 	{
 	public:
 		virtual bool Create(std::string name, ...) override;
-		void Link();
 		void Bind();
 		std::shared_ptr<en::Program> getProgram() { return _program; }
 
-		glm::vec3 ambient;
-		glm::vec3 diffuse;
-		glm::vec3 specular;
+		glm::vec3 color;
+		glm::vec2 uv_tiling { 1.0, 1.0 };
+		glm::vec2 uv_offset { 0.0, 0.0 };
 		float shininess = 0.0f;
 
 	private:

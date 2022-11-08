@@ -1,35 +1,31 @@
 #ifndef _COMPONENT_MODEL_H
 #define _COMPONENT_MODEL_H
 
+#include "Framework/Component.h"
 #include "RenderComponent.h"
 
 namespace en
 {
+	class Renderer;
 	class Model;
+	class Material;
 
 	class ModelComponent : public RenderComponent
 	{
 	public:
 		ModelComponent() = default;
-		~ModelComponent() = default;
 
-		CLONE(ModelComponent)
+		CLONE(ModelComponent);
 
-		void Update() override;
-		void Draw(Renderer& renderer) override;
+		virtual void Update() override {}
+		virtual void Draw(Renderer& renderer) override;
 
-		virtual bool Write(const rapidjson::Value& value) const override;
-		virtual bool Read(const rapidjson::Value& value) override;
-
-		bool get()
-		{
-			if (_model == nullptr) return false;
-
-			return true;
-		}
+		bool Write(const rapidjson::Value& value) const override;
+		bool Read(const rapidjson::Value& value) override;
 
 	public:
-		std::shared_ptr<Model> _model = std::make_shared<Model>();
+		std::shared_ptr<en::Model> model;
+		std::shared_ptr<en::Material> material;
 
 	};
 }

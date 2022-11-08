@@ -1,14 +1,33 @@
 #ifndef _MODEL_H
 #define _MODEL_H
-#include <vector>
-#include <string>
+
 #include "Renderer.h"
 #include "Resource/Resource.h"
+#include "Renderer.h" 
+#include "VertexBuffer.h" 
+#include "Math/MathUtils.h" 
+
+#include <assimp/Importer.hpp> 
+#include <assimp/scene.h> 
+#include <assimp/postprocess.h>
+
+#include <vector>
+#include <string>
 
 namespace en
 {
 	class Model : public Resource
 	{
+	public:
+
+		struct vertex
+		{
+			glm::vec3 position;	/* 0 */
+			glm::vec2 uv;		/* 1 */
+			glm::vec3 normal;	/* 2 */
+			glm::vec3 tangent;	/* 3 */
+		};
+
 	public:
 		Model() = default;
 		Model(const std::vector<en::Vector2>& points, const en::Color& color)
@@ -27,7 +46,13 @@ namespace en
 		Color& getColor() { return _color; }
 		void setColor(const en::Color& color) { _color = color; }
 		float getRadius() { return _radius; }
+		
+		VertexBuffer _vertexBuffer;
 	private:
+
+		void ProcessNode(aiNode* node, const aiScene* scene);
+		void ProcessMesh(aiMesh* mesh, const aiScene* scene);
+
 		en::Color _color {255, 255, 255, 255};
 		std::vector<en::Vector2> _points;
 		std::string _name;

@@ -1,0 +1,15 @@
+{ 
+  "program": "shader/lights_normal_phong.prog",
+  "textures": [
+    "texture/red_fox_diffuse.png"
+  ],
+    "color":
+	  [
+        1.0,
+        1.0,
+        1.0
+    ],
+  "shininess": 256.0,
+  "tiling": [ 1.0, 1.0 ],
+  "offset": [ 1.0, 1.0 ]
+}

@@ -76,7 +76,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Engine;$(SolutionDir)Engine\ThirdParty\glad\include\;$(SolutionDir)Engine\ThirdParty\SDL2\include\;$(SolutionDir)Engine\ThirdParty\glm\;$(SolutionDir)Engine\ThirdParty\rapidjson\;$(SolutionDir)Engine\ThirdParty\box2d\include\box2d\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Engine;$(SolutionDir)Engine\ThirdParty\glad\include\;$(SolutionDir)Engine\ThirdParty\SDL2\include\;$(SolutionDir)Engine\ThirdParty\glm\;$(SolutionDir)Engine\ThirdParty\rapidjson\;$(SolutionDir)Engine\ThirdParty\box2d\include\box2d\;$(SolutionDir)Engine\ThirdParty\assimp\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -92,7 +92,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Engine;$(SolutionDir)Engine\ThirdParty\glad\include\;$(SolutionDir)Engine\ThirdParty\SDL2\include\;$(SolutionDir)Engine\ThirdParty\glm\;$(SolutionDir)Engine\ThirdParty\rapidjson\;$(SolutionDir)Engine\ThirdParty\box2d\include\box2d\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Engine;$(SolutionDir)Engine\ThirdParty\glad\include\;$(SolutionDir)Engine\ThirdParty\SDL2\include\;$(SolutionDir)Engine\ThirdParty\glm\;$(SolutionDir)Engine\ThirdParty\rapidjson\;$(SolutionDir)Engine\ThirdParty\box2d\include\box2d\;$(SolutionDir)Engine\ThirdParty\assimp\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -108,7 +108,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Engine;$(SolutionDir)Engine\ThirdParty\glad\include\;$(SolutionDir)Engine\ThirdParty\SDL2\include\;$(SolutionDir)Engine\ThirdParty\glm\;$(SolutionDir)Engine\ThirdParty\rapidjson\;$(SolutionDir)Engine\ThirdParty\box2d\include\box2d\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Engine;$(SolutionDir)Engine\ThirdParty\glad\include\;$(SolutionDir)Engine\ThirdParty\SDL2\include\;$(SolutionDir)Engine\ThirdParty\glm\;$(SolutionDir)Engine\ThirdParty\rapidjson\;$(SolutionDir)Engine\ThirdParty\box2d\include\box2d\;$(SolutionDir)Engine\ThirdParty\assimp\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -124,7 +124,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Engine;$(SolutionDir)Engine\ThirdParty\glad\include\;$(SolutionDir)Engine\ThirdParty\SDL2\include\;$(SolutionDir)Engine\ThirdParty\glm\;$(SolutionDir)Engine\ThirdParty\rapidjson\;$(SolutionDir)Engine\ThirdParty\box2d\include\box2d\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Engine;$(SolutionDir)Engine\ThirdParty\glad\include\;$(SolutionDir)Engine\ThirdParty\SDL2\include\;$(SolutionDir)Engine\ThirdParty\glm\;$(SolutionDir)Engine\ThirdParty\rapidjson\;$(SolutionDir)Engine\ThirdParty\box2d\include\box2d\;$(SolutionDir)Engine\ThirdParty\assimp\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -138,10 +138,23 @@
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\Build\assets\material\box.mtrl" />
-    <None Include="..\Build\assets\shader\basic.frag" />
-    <None Include="..\Build\assets\shader\basic.prog" />
-    <None Include="..\Build\assets\shader\basic.vert" />
+    <None Include="..\Build\assets\material\lights_normal.mtrl" />
+    <None Include="..\Build\assets\material\multi.mtrl" />
+    <None Include="..\Build\assets\material\normal.mtrl" />
+    <None Include="..\Build\assets\material\phong.mtrl" />
+    <None Include="..\Build\assets\scene\lights_normal.scene" />
+    <None Include="..\Build\assets\scene\normal.scene" />
+    <None Include="..\Build\assets\scene\texture.scene" />
+    <None Include="..\Build\assets\scene\phong.scene" />
+    <None Include="..\Build\assets\shader\lights_normal_phong.frag" />
+    <None Include="..\Build\assets\shader\lights_normal_phong.prog" />
+    <None Include="..\Build\assets\shader\lights_normal_phong.vert" />
+    <None Include="..\Build\assets\shader\normal_phong.frag" />
+    <None Include="..\Build\assets\shader\normal_phong.prog" />
+    <None Include="..\Build\assets\shader\normal_phong.vert" />
+    <None Include="..\Build\assets\shader\texture_phong.frag" />
+    <None Include="..\Build\assets\shader\texture_phong.prog" />
+    <None Include="..\Build\assets\shader\texture_phong.vert" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Engine\Engine.vcxproj">

@@ -4,6 +4,7 @@
 #include <SDL.h>
 #include <glad/glad.h>
 #include "Texture.h"
+#include "Math/MathUtils.h"
 #include "Math/Vector2.h"
 #include "Math/Color.h"
 #include "Math/Matrix3x3.h"
@@ -42,15 +43,6 @@ namespace en
 		void Draw(std::shared_ptr<Texture> texture, const Rect& source, const Transform& transform, const Vector2& regist = Vector2{ .5, .5 }, bool flipH = false);
 		void Draw2(std::shared_ptr<Texture> texture, const Rect& source, const Transform& transform, const Vector2& regist = Vector2{ .5, .5 }, bool flipH = false);
 
-		***********************************************************************************************************************************/
-
-		void newWindow(const char* title, int width, int height, bool fullscreen = false);
-		void beginFrame();
-		void beginFrame(const RenderColor& color);
-		void endFrame();
-		void setClearColor(const Color& color) { _clearcolor = color; }
-		Color& getClearColor() { return _clearcolor; }
-
 		void drawLine(float x1, float y1, float x2, float y2, const Color& color);
 		void drawLine(const Vector2& v1, const Vector2& v2, const Color& color);
 
@@ -59,6 +51,15 @@ namespace en
 
 		void drawCircle(float x, float y, float radius, const Color& color);
 		void drawCircle(Vector2& position, float radius, const Color& color);
+
+		***********************************************************************************************************************************/
+
+		void newWindow(const char* title, int width, int height, bool fullscreen = false);
+		void beginFrame();
+		void beginFrame(const RenderColor& color);
+		void endFrame();
+		void setClearColor(const Color& color) { _clearcolor = color; }
+		Color& getClearColor() { return _clearcolor; }
 
 		int get_window_width() { return width; }
 		int get_window_height() { return height; }
@@ -69,13 +70,16 @@ namespace en
 		SDL_Renderer* _renderer{ nullptr };
 		SDL_Window* _window{ nullptr };
 
-		Matrix3x3 _view;
-		Matrix3x3 _viewport;
+		// Matrix3x3 _view; *Deprecated*
+		// Matrix3x3 _viewport; *Deprecated*
 
-		void setView(const Matrix3x3& view) { _view = view; }
-		void setViewport(const Matrix3x3& viewport) { _viewport = viewport; }
+		glm::mat4 _view { 1.0f };
+		glm::mat4 _projection { 1.0f };
 
-		
+		void setView(const glm::mat4& view) { _view = view; }
+		glm::mat4& getView() { return _view; }
+		void setProjection(const glm::mat4& projection) { _projection = projection; }
+		glm::mat4& getProjection() { return _projection; }
 
 	private:
 		int width = 0;

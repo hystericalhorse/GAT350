@@ -14,7 +14,7 @@ namespace en
 	{
 		SDL_Surface* _surface = IMG_Load(filename.c_str());
 		if (_surface == nullptr) { LOG(SDL_GetError()); return false; }
-		flipSurface(_surface);
+		// flipSurface(_surface); // UVs are automatically flipped in Model.cpp
 
 		glGenTextures(1, &_texture);
 		glBindTexture(_target, _texture);
@@ -22,10 +22,10 @@ namespace en
 		GLenum format = (_surface->format->BytesPerPixel == 4) ? GL_RGBA : GL_RGB;
 		glTexImage2D(_target, 0, format, _surface->w, _surface->h, 0, format, GL_UNSIGNED_BYTE, _surface->pixels);
 
-		glTexParameteri(_target, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+		glTexParameteri(_target, GL_TEXTURE_MIN_FILTER, GL_LINEAR); // GL_NEAREST FOR RETRO LOOK, GL_LINEAR FOR SMOOTHER TEXTURE
 		glTexParameteri(_target, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-		glTexParameteri(_target, GL_TEXTURE_WRAP_S, GL_CLAMP);
-		glTexParameteri(_target, GL_TEXTURE_WRAP_T, GL_CLAMP);
+		glTexParameteri(_target, GL_TEXTURE_WRAP_S, GL_REPEAT);
+		glTexParameteri(_target, GL_TEXTURE_WRAP_T, GL_REPEAT);
 
 		SDL_FreeSurface(_surface);
 

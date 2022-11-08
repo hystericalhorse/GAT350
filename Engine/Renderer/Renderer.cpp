@@ -15,9 +15,6 @@ namespace en
 		SDL_Init(SDL_INIT_VIDEO);
 
 		TTF_Init();
-
-		_view = Matrix3x3::identity;
-		_viewport = Matrix3x3::identity;
 	}
 
 	void Renderer::Shutdown()
@@ -69,6 +66,8 @@ namespace en
 	{
 		SDL_GL_SwapWindow(_window);
 	}
+
+	/********* DEPRECATED **************************************************************
 
 	void Renderer::drawLine(float x1, float y1, float x2, float y2, const Color& color)
 	{
@@ -173,7 +172,6 @@ namespace en
 		}
 	}
 
-	/** Deprecated *******************************
 	* void Renderer::Draw(std::shared_ptr<en::Texture> texture, const Vector2& position, float angle, const Vector2& scale, const Vector2& regist)
 	{
 		Vector2 size = texture->getSize();
@@ -272,5 +270,5 @@ namespace en
 		// SDL_RenderCopyEx(_renderer, texture->_texture, &src, &dest, transform.rotation, &center, sdl_flip);
 	}
 
-	***************************************/
+	*****************************************************/
 }

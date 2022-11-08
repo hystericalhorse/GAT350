@@ -3,6 +3,8 @@
 #include "Renderer/Renderer.h"
 #include "Core/Logger.h"
 
+#include "Engine.h"
+
 #include <iostream>
 
 namespace en
@@ -10,6 +12,22 @@ namespace en
 	void Scene::Init()
 	{
 		for (auto& actor : _actors) { actor->Init(); }
+	}
+
+	bool Scene::Create(std::string name, ...)
+	{
+		rapidjson::Document document;
+		bool success = en::json::Load(name, document);
+		if (!success)
+		{
+			LOG("Error loading scene %s.", name.c_str());
+			return false;
+		}
+		
+		Read(document);
+		Init();
+		
+		return true;
 	}
 
 	void Scene::Update()
@@ -25,6 +43,7 @@ namespace en
 
 	void Scene::Shutdown()
 	{
+
 		for (auto& actor : _actors)
 		{
 			actor->toggleActive(false);
@@ -36,6 +55,13 @@ namespace en
 
 	void Scene::Draw(Renderer& renderer)
 	{
+		auto camera = getActor("Camera");
+		if (camera)
+		{
+			__renderer.setView(camera->getComponent<en::CameraComponent>()->getView());
+			__renderer.setProjection(camera->getComponent<en::CameraComponent>()->getProjection());
+		}
+
 		for (auto& actor : _actors)
 		{
 			actor->Draw(renderer);

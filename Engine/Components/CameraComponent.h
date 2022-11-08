@@ -16,10 +16,11 @@ namespace en
 		virtual void Init() override;
 		virtual void Update() override;
 
-		const Matrix3x3& _View() { return _view; }
+		void setPerspective(float fov, float aspect, float near, float far);
 
-		void setViewport(const Vector2& size);
-		const Matrix3x3& _Viewport() { return _viewport; }
+		const glm::mat4& getView() { return _view; }
+		const glm::mat4& getProjection() { return _projection; }
+
 
 		virtual bool Write(const rapidjson::Value& value) const override;
 		virtual bool Read(const rapidjson::Value& value) override;
@@ -27,8 +28,8 @@ namespace en
 	public:
 		Vector2 _viewportsize;
 
-		Matrix3x3 _view;
-		Matrix3x3 _viewport;
+		glm::mat4 _view { 1.0f };
+		glm::mat4 _projection { 1.0f };
 	};
 }
 

@@ -6,11 +6,13 @@
 #include "Input/InputSystem.h"
 
 #include "Renderer/Renderer.h"
+#include "Renderer/Model.h"
 #include "Renderer/Text.h"
 #include "Renderer/Font.h"
 #include "Renderer/Shader.h"
 #include "Renderer/Program.h"
 #include "Renderer/Material.h"
+#include "Renderer/VertexBuffer.h"
 
 #include "Math/MathUtils.h"
 #include "Math/Random.h"
@@ -19,29 +21,31 @@
 #include "Core/Logger.h"
 #include "Core/File.h"
 #include "Core/Time.h"
+#include "Core/Utils.h"
 
 #include "Audio/AudioSys.h"
 
 #include "Physics/PhysicsSystem.h"
 
-#include "Framework/Background.h"
 #include "Framework/Scene.h"
 #include "Framework/Game.h"
 #include "Framework/Factory.h"
 #include "Framework/Singleton.h"
 #include "Framework/EventManager.h"
 
+#include "Components/ModelComponent.h"
 #include "Components/PlayerComponent.h"
 #include "Components/SpriteComponent.h"
 #include "Components/AudioComponent.h"
 #include "Components/PhysicsComponent.h"
 #include "Components/RigidBodPhysicsComponent.h"
 #include "Components/CollisionComponent.h"
-#include "Components/ModelComponent.h"
 #include "Components/TextComponent.h"
 #include "Components/SpriteAnimComponent.h"
 #include "Components/TilemapComponent.h"
 #include "Components/CameraComponent.h"
+#include "Components/CameraControllerComponent.h"
+#include "Components/LightComponent.h"
 
 #include "Components/CharacterComponent.h"
 

@@ -16,7 +16,7 @@ namespace en
 				int x = i % num_columns;
 				int y = i / num_columns;
 
-				actor->_Transform().position = _owner->_Transform().position + (Vector2{x, y} * size);
+				// actor->_Transform().position = _owner->_Transform().position + (Vector2{x, y} * size);
 				_owner->getScene()->addActor(std::move(actor));
 			}
 		}

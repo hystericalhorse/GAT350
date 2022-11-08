@@ -1,0 +1,17 @@
+{ 
+    "program": "shader/texture_phong.prog",
+  "textures": [
+    "texture/volcanic_diffuse.png",
+    "texture/volcanic_specular.png",
+    "texture/volcanic_emissive.png"
+  ],
+    "color":
+	  [
+        0.5,
+        0.5,
+        0.5
+    ],
+  "shininess": 256.0,
+  "tiling": [ 1.0, 1.0 ],
+  "offset": [ 1.0, 1.0 ]
+}

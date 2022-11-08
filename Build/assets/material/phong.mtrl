@@ -1,0 +1,11 @@
+{ 
+    "program": "shader/basic_phong.prog",
+    "texture": "texture/obama.png",
+    "color":
+	  [
+        1.0,
+        1.0,
+        1.0
+    ],
+    "shininess": 100.0
+}
