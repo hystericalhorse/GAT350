@@ -61,13 +61,13 @@
       "name": "Light",
       "transform": {
         "position": [
-          -1.0,
+           0.0,
            0.0,
           -2.0
         ],
         "rotation": [
-           0.0,
-           0.0,
+           15.0,
+           180.0,
            0.0
         ]
       },
@@ -84,9 +84,9 @@
             0.0,
             0.0
           ],
-          "type_name": "point",
-          "cutoff": 45.0,
-          "exponent":  50.0
+          "type_name": "spot",
+          "cutoff": 60.0,
+          "exponent": 45.0
         }
       ]
     },

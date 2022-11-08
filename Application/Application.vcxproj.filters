@@ -22,6 +22,15 @@
     <Filter Include="Resource Files\scene">
       <UniqueIdentifier>{fd363720-8188-4857-ba23-0d8a7e9e672f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\shader\fx">
+      <UniqueIdentifier>{53f7d772-78fe-4c95-ab02-4df08d4c945e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\shader\lit">
+      <UniqueIdentifier>{914aee79-84f2-4be0-a2ce-36ba93a7c117}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\shader\unlit">
+      <UniqueIdentifier>{8b470345-527b-4bfa-b3a9-0ffd08b45749}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">

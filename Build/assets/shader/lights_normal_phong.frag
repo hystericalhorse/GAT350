@@ -58,7 +58,7 @@ void main()
 	ambient = l_ambient * m_color;
 
 	// Diffuse
-	float intensity = max(dot(light_direction, normal), 0) * spot_intensity;
+	float intensity = max(dot(light_direction, normal), 0) * spot_intensity * 1.0; // possible implementation of intensity multiplier?
 	diffuse = l_color * intensity;
 
 	// Specular

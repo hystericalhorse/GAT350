@@ -15,7 +15,7 @@ int main(int argc, char** argv)
 	en::__renderer.newWindow("Application", 800, 600);
 
 	// LOAD SCENE
-	auto scene = en::__registry.Get<en::Scene>("scene/lights_normal.scene");
+	auto scene = en::__registry.Get<en::Scene>("scene/red_fox.scene");
 
 	bool quit = false;
 	while (!quit)
@@ -29,13 +29,13 @@ int main(int argc, char** argv)
 		auto actor = scene->getActor("Object");
 		if (actor)
 		{
-			actor->_transform.rotation.y -= en::__time.ci_time * 15.0f;
+			//actor->_transform.rotation.y -= en::__time.ci_time * 15.0f;
 		}
 
 		auto light = scene->getActor("Light");
 		if (light)
 		{
-			light->_transform.position.x = std::sin(en::__time.time) * 0.1;
+			//light->_transform.position.x = std::sin(en::__time.time) * 0.1;
 		}
 
 		en::__renderer.beginFrame({ 0.0f, 0.0f, 0.0f, 1.0f});

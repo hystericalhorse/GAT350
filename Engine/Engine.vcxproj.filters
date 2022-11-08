@@ -35,7 +35,7 @@
     <Filter Include="Source\Physics">
       <UniqueIdentifier>{134a6b85-5972-4517-94e1-3aef2781cb64}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source\Core\Components">
+    <Filter Include="Source\Components">
       <UniqueIdentifier>{c036c8c7-1c00-4ca8-9e02-cba9046c780b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -92,16 +92,16 @@
       <Filter>Source\Math</Filter>
     </ClCompile>
     <ClCompile Include="Components\PlayerComponent.cpp">
-      <Filter>Source\Core\Components</Filter>
+      <Filter>Source\Components</Filter>
     </ClCompile>
     <ClCompile Include="Components\SpriteComponent.cpp">
-      <Filter>Source\Core\Components</Filter>
+      <Filter>Source\Components</Filter>
     </ClCompile>
     <ClCompile Include="Components\AudioComponent.cpp">
-      <Filter>Source\Core\Components</Filter>
+      <Filter>Source\Components</Filter>
     </ClCompile>
     <ClCompile Include="Components\PhysicsComponent.cpp">
-      <Filter>Source\Core\Components</Filter>
+      <Filter>Source\Components</Filter>
     </ClCompile>
     <ClCompile Include="Math\Matrix2x2.cpp">
       <Filter>Source\Math</Filter>
@@ -116,40 +116,40 @@
       <Filter>Source\Serialization</Filter>
     </ClCompile>
     <ClCompile Include="Components\SpriteAnimComponent.cpp">
-      <Filter>Source\Core\Components</Filter>
+      <Filter>Source\Components</Filter>
     </ClCompile>
     <ClCompile Include="Physics\PhysicsSystem.cpp">
       <Filter>Source\Physics</Filter>
     </ClCompile>
     <ClCompile Include="Components\RigidBodPhysicsComponent.cpp">
-      <Filter>Source\Core\Components</Filter>
+      <Filter>Source\Components</Filter>
     </ClCompile>
     <ClCompile Include="Components\CollisionComponent.cpp">
-      <Filter>Source\Core\Components</Filter>
+      <Filter>Source\Components</Filter>
     </ClCompile>
     <ClCompile Include="Audio\AudioChannel.cpp">
       <Filter>Source\Audio</Filter>
     </ClCompile>
     <ClCompile Include="Components\TextComponent.cpp">
-      <Filter>Source\Core\Components</Filter>
+      <Filter>Source\Components</Filter>
     </ClCompile>
     <ClCompile Include="Physics\ContactListener.cpp">
       <Filter>Source\Physics</Filter>
     </ClCompile>
     <ClCompile Include="Components\TilemapComponent.cpp">
-      <Filter>Source\Core\Components</Filter>
+      <Filter>Source\Components</Filter>
     </ClCompile>
     <ClCompile Include="Framework\EventManager.cpp">
       <Filter>Source\Framework</Filter>
     </ClCompile>
     <ClCompile Include="Components\CharacterComponent.cpp">
-      <Filter>Source\Core\Components</Filter>
+      <Filter>Source\Components</Filter>
     </ClCompile>
     <ClCompile Include="Components\CameraComponent.cpp">
-      <Filter>Source\Core\Components</Filter>
+      <Filter>Source\Components</Filter>
     </ClCompile>
     <ClCompile Include="Components\TriggerComponent.cpp">
-      <Filter>Source\Core\Components</Filter>
+      <Filter>Source\Components</Filter>
     </ClCompile>
     <ClCompile Include="ThirdParty\glad\src\glad.c">
       <Filter>Source\Renderer</Filter>
@@ -167,13 +167,13 @@
       <Filter>Source\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="Components\ModelComponent.cpp">
-      <Filter>Source\Core\Components</Filter>
+      <Filter>Source\Components</Filter>
     </ClCompile>
     <ClCompile Include="Components\CameraControllerComponent.cpp">
-      <Filter>Source\Core\Components</Filter>
+      <Filter>Source\Components</Filter>
     </ClCompile>
     <ClCompile Include="Components\LightComponent.cpp">
-      <Filter>Source\Core\Components</Filter>
+      <Filter>Source\Components</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -244,19 +244,19 @@
       <Filter>Source\Framework</Filter>
     </ClInclude>
     <ClInclude Include="Components\PlayerComponent.h">
-      <Filter>Source\Core\Components</Filter>
+      <Filter>Source\Components</Filter>
     </ClInclude>
     <ClInclude Include="Components\RenderComponent.h">
-      <Filter>Source\Core\Components</Filter>
+      <Filter>Source\Components</Filter>
     </ClInclude>
     <ClInclude Include="Components\SpriteComponent.h">
-      <Filter>Source\Core\Components</Filter>
+      <Filter>Source\Components</Filter>
     </ClInclude>
     <ClInclude Include="Components\AudioComponent.h">
-      <Filter>Source\Core\Components</Filter>
+      <Filter>Source\Components</Filter>
     </ClInclude>
     <ClInclude Include="Components\PhysicsComponent.h">
-      <Filter>Source\Core\Components</Filter>
+      <Filter>Source\Components</Filter>
     </ClInclude>
     <ClInclude Include="Math\Matrix2x2.h">
       <Filter>Source\Math</Filter>
@@ -289,13 +289,13 @@
       <Filter>Source\Math</Filter>
     </ClInclude>
     <ClInclude Include="Components\SpriteAnimComponent.h">
-      <Filter>Source\Core\Components</Filter>
+      <Filter>Source\Components</Filter>
     </ClInclude>
     <ClInclude Include="Components\RigidBodPhysicsComponent.h">
-      <Filter>Source\Core\Components</Filter>
+      <Filter>Source\Components</Filter>
     </ClInclude>
     <ClInclude Include="Components\CollisionComponent.h">
-      <Filter>Source\Core\Components</Filter>
+      <Filter>Source\Components</Filter>
     </ClInclude>
     <ClInclude Include="Physics\Collidable.h">
       <Filter>Source\Physics</Filter>
@@ -304,13 +304,13 @@
       <Filter>Source\Audio</Filter>
     </ClInclude>
     <ClInclude Include="Components\TextComponent.h">
-      <Filter>Source\Core\Components</Filter>
+      <Filter>Source\Components</Filter>
     </ClInclude>
     <ClInclude Include="Physics\ContactListener.h">
       <Filter>Source\Physics</Filter>
     </ClInclude>
     <ClInclude Include="Components\TilemapComponent.h">
-      <Filter>Source\Core\Components</Filter>
+      <Filter>Source\Components</Filter>
     </ClInclude>
     <ClInclude Include="Framework\EventManager.h">
       <Filter>Source\Framework</Filter>
@@ -322,13 +322,13 @@
       <Filter>Source\Physics</Filter>
     </ClInclude>
     <ClInclude Include="Components\CharacterComponent.h">
-      <Filter>Source\Core\Components</Filter>
+      <Filter>Source\Components</Filter>
     </ClInclude>
     <ClInclude Include="Components\CameraComponent.h">
-      <Filter>Source\Core\Components</Filter>
+      <Filter>Source\Components</Filter>
     </ClInclude>
     <ClInclude Include="Components\TriggerComponent.h">
-      <Filter>Source\Core\Components</Filter>
+      <Filter>Source\Components</Filter>
     </ClInclude>
     <ClInclude Include="Renderer\Shader.h">
       <Filter>Source\Renderer</Filter>
@@ -343,13 +343,13 @@
       <Filter>Source\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="Components\ModelComponent.h">
-      <Filter>Source\Core\Components</Filter>
+      <Filter>Source\Components</Filter>
     </ClInclude>
     <ClInclude Include="Components\CameraControllerComponent.h">
-      <Filter>Source\Core\Components</Filter>
+      <Filter>Source\Components</Filter>
     </ClInclude>
     <ClInclude Include="Components\LightComponent.h">
-      <Filter>Source\Core\Components</Filter>
+      <Filter>Source\Components</Filter>
     </ClInclude>
     <ClInclude Include="Core\Utils.h">
       <Filter>Source\Core</Filter>
