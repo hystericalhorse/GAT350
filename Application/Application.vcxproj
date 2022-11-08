@@ -138,12 +138,17 @@
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\Build\assets\material\lights_normal.mtrl" />
     <None Include="..\Build\assets\material\multi.mtrl" />
     <None Include="..\Build\assets\material\normal.mtrl" />
     <None Include="..\Build\assets\material\phong.mtrl" />
+    <None Include="..\Build\assets\scene\lights_normal.scene" />
     <None Include="..\Build\assets\scene\normal.scene" />
     <None Include="..\Build\assets\scene\texture.scene" />
     <None Include="..\Build\assets\scene\phong.scene" />
+    <None Include="..\Build\assets\shader\lights_normal_phong.frag" />
+    <None Include="..\Build\assets\shader\lights_normal_phong.prog" />
+    <None Include="..\Build\assets\shader\lights_normal_phong.vert" />
     <None Include="..\Build\assets\shader\normal_phong.frag" />
     <None Include="..\Build\assets\shader\normal_phong.prog" />
     <None Include="..\Build\assets\shader\normal_phong.vert" />

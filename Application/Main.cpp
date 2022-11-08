@@ -15,7 +15,7 @@ int main(int argc, char** argv)
 	en::__renderer.newWindow("Application", 800, 600);
 
 	// LOAD SCENE
-	auto scene = en::__registry.Get<en::Scene>("scene/normal.scene");
+	auto scene = en::__registry.Get<en::Scene>("scene/lights_normal.scene");
 
 	bool quit = false;
 	while (!quit)
@@ -23,12 +23,6 @@ int main(int argc, char** argv)
 		en::Engine::Instance().Update();
 
 		if (en::__inputsys.getKeyState(en::key_escape) == en::InputSystem::KeyState::PRESSED) quit = true;
-		
-		auto material = en::__registry.Get<en::Material>("material/multi.mtrl");
-		if (material)
-		{
-			
-		}
 
 		scene->Update();
 
@@ -41,7 +35,7 @@ int main(int argc, char** argv)
 		auto light = scene->getActor("Light");
 		if (light)
 		{
-			//light->_transform.position.x = std::sin(en::__time.time);
+			light->_transform.position.x = std::sin(en::__time.time) * 0.1;
 		}
 
 		en::__renderer.beginFrame({ 0.0f, 0.0f, 0.0f, 1.0f});

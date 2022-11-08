@@ -65,5 +65,20 @@
     <None Include="..\Build\assets\material\normal.mtrl">
       <Filter>Resource Files\material</Filter>
     </None>
+    <None Include="..\Build\assets\scene\lights_normal.scene">
+      <Filter>Resource Files\scene</Filter>
+    </None>
+    <None Include="..\Build\assets\material\lights_normal.mtrl">
+      <Filter>Resource Files\material</Filter>
+    </None>
+    <None Include="..\Build\assets\shader\lights_normal_phong.frag">
+      <Filter>Resource Files\shader</Filter>
+    </None>
+    <None Include="..\Build\assets\shader\lights_normal_phong.prog">
+      <Filter>Resource Files\shader</Filter>
+    </None>
+    <None Include="..\Build\assets\shader\lights_normal_phong.vert">
+      <Filter>Resource Files\shader</Filter>
+    </None>
   </ItemGroup>
 </Project>

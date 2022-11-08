@@ -2,6 +2,7 @@
 #define _EVENT_MANAGER_H
 
 #include "Event.h"
+#include <string>
 #include <map>
 #include <list>
 
