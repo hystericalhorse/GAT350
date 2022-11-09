@@ -38,20 +38,11 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\Build\assets\scene\phong.scene">
-      <Filter>Resource Files\scene</Filter>
-    </None>
     <None Include="..\Build\assets\material\phong.mtrl">
       <Filter>Resource Files\material</Filter>
     </None>
-    <None Include="..\Build\assets\scene\texture.scene">
-      <Filter>Resource Files\scene</Filter>
-    </None>
     <None Include="..\Build\assets\material\multi.mtrl">
       <Filter>Resource Files\material</Filter>
-    </None>
-    <None Include="..\Build\assets\scene\normal.scene">
-      <Filter>Resource Files\scene</Filter>
     </None>
     <None Include="..\Build\assets\material\normal.mtrl">
       <Filter>Resource Files\material</Filter>
