@@ -76,5 +76,4 @@ void main()
 	}
 
 	f_color = texture(emissiveMap, t_uv) + vec4(ambient + diffuse, 1.0) * texture(diffuseMap, t_uv) + (vec4(specular, 1.0));
-	//f_color = vec4(ambient + diffuse, 1.0) * texture(diffuseMap, t_uv) + (vec4(specular, 1.0));
 }

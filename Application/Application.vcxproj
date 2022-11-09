@@ -147,6 +147,9 @@
     <None Include="..\Build\assets\scene\normal.scene" />
     <None Include="..\Build\assets\scene\texture.scene" />
     <None Include="..\Build\assets\scene\phong.scene" />
+    <None Include="..\Build\assets\shader\fx\cell.frag" />
+    <None Include="..\Build\assets\shader\fx\cell.prog" />
+    <None Include="..\Build\assets\shader\fx\cell.vert" />
     <None Include="..\Build\assets\shader\lit\texture.frag" />
     <None Include="..\Build\assets\shader\lit\texture.prog" />
     <None Include="..\Build\assets\shader\lit\texture.vert" />

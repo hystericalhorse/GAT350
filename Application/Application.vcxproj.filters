@@ -101,5 +101,14 @@
     <None Include="..\Build\assets\shader\unlit\texture.prog">
       <Filter>Resource Files\shader\unlit</Filter>
     </None>
+    <None Include="..\Build\assets\shader\fx\cell.frag">
+      <Filter>Resource Files\shader\fx</Filter>
+    </None>
+    <None Include="..\Build\assets\shader\fx\cell.prog">
+      <Filter>Resource Files\shader\fx</Filter>
+    </None>
+    <None Include="..\Build\assets\shader\fx\cell.vert">
+      <Filter>Resource Files\shader\fx</Filter>
+    </None>
   </ItemGroup>
 </Project>
