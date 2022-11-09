@@ -15,7 +15,7 @@ int main(int argc, char** argv)
 	en::__renderer.newWindow("Application", 800, 600);
 
 	// LOAD SCENE
-	auto scene = en::__registry.Get<en::Scene>("scene/red_fox.scene");
+	auto scene = en::__registry.Get<en::Scene>("scene/lights_normal.scene");
 
 	bool quit = false;
 	while (!quit)
@@ -35,7 +35,16 @@ int main(int argc, char** argv)
 		auto light = scene->getActor("Light");
 		if (light)
 		{
+			float speed = 4.0;
 			//light->_transform.position.x = std::sin(en::__time.time) * 0.1;
+
+			if (en::__inputsys.getKeyState(en::key_up) == en::InputSystem::KeyState::HELD) light->_transform.position.y += speed * en::__time.ci_time;
+			if (en::__inputsys.getKeyState(en::key_down) == en::InputSystem::KeyState::HELD) light->_transform.position.y -= speed * en::__time.ci_time;
+			if (en::__inputsys.getKeyState(en::key_right) == en::InputSystem::KeyState::HELD) light->_transform.position.x -= speed * en::__time.ci_time;
+			if (en::__inputsys.getKeyState(en::key_left) == en::InputSystem::KeyState::HELD) light->_transform.position.x += speed * en::__time.ci_time;
+			if (en::__inputsys.getKeyState(en::key_w) == en::InputSystem::KeyState::HELD) light->_transform.position.z += speed * speed * en::__time.ci_time;
+			if (en::__inputsys.getKeyState(en::key_s) == en::InputSystem::KeyState::HELD) light->_transform.position.z -= speed * speed * en::__time.ci_time;
+			
 		}
 
 		en::__renderer.beginFrame({ 0.0f, 0.0f, 0.0f, 1.0f});

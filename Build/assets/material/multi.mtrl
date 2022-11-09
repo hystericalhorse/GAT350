@@ -1,5 +1,5 @@
 { 
-    "program": "shader/texture_phong.prog",
+    "program": "shader/lit/texture.prog",
   "textures": [
     "texture/volcanic_diffuse.png",
     "texture/volcanic_specular.png",

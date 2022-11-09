@@ -2,7 +2,7 @@
 
 in vec2 uv;
 in vec4 position;
-in mat3 tbn;
+in vec3 normal;
 
 out vec4 f_color;
 
@@ -16,9 +16,9 @@ uniform float m_shininess;
 uniform vec2 m_tiling;
 uniform vec2 m_offset;
 
-layout (binding = 0) uniform sampler2D diffuseMap; /* 0 Diffuse */
-layout (binding = 1) uniform sampler2D normalMap; /* 1 Normal */
-layout (binding = 2) uniform sampler2D emissiveMap; /* 2 Emissive */
+layout (binding = 0) uniform sampler2D texture_1; /* 0 Diffuse */
+layout (binding = 1) uniform sampler2D texture_2; /* 1 Specular */
+layout (binding = 2) uniform sampler2D texture_3; /* 2 Emissive */
 
 void phong(vec4 position, vec3 normal, out vec3 ambient, out vec3 diffuse, out vec3 specular)
 {
@@ -48,19 +48,13 @@ void phong(vec4 position, vec3 normal, out vec3 ambient, out vec3 diffuse, out v
 
 void main()
 {
-	vec2 t_uv = (uv * m_tiling) + m_offset;
-
 	vec3 ambient;
 	vec3 diffuse;
 	vec3 specular;
 
-	vec3 normal = texture(normalMap, t_uv).rgb;
-	normal = (normal * 2) - 1; // 0 - 1 -> -1 - 1
-
-	normal = normalize(tbn * normal);
-
 	phong(position, normal, ambient, diffuse, specular);
 
-	f_color = texture(emissiveMap, t_uv) + vec4(ambient + diffuse, 1.0) * texture(diffuseMap, t_uv) + (vec4(specular, 1.0));
-	//f_color = vec4(ambient + diffuse, 1.0) * texture(diffuseMap, t_uv) + (vec4(specular, 1.0));
+	vec2 t_uv = (uv * m_tiling) + m_offset;
+
+	f_color = texture(texture_3, t_uv) + vec4(ambient + diffuse, 1.0) * texture(texture_1, t_uv) + (vec4(specular, 1.0) * texture(texture_2, t_uv));
 }

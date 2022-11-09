@@ -1,5 +1,5 @@
 { 
-    "program": "shader/basic_phong.prog",
+    "program": "shader/lit/texture.prog",
     "texture": "texture/obama.png",
     "color":
 	  [

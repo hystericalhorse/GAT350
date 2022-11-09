@@ -138,23 +138,27 @@
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\Build\assets\material\lights_normal.mtrl" />
+    <None Include="..\Build\assets\material\floor.mtrl" />
     <None Include="..\Build\assets\material\multi.mtrl" />
     <None Include="..\Build\assets\material\normal.mtrl" />
     <None Include="..\Build\assets\material\phong.mtrl" />
+    <None Include="..\Build\assets\material\texture_normal.mtrl" />
     <None Include="..\Build\assets\scene\lights_normal.scene" />
     <None Include="..\Build\assets\scene\normal.scene" />
     <None Include="..\Build\assets\scene\texture.scene" />
     <None Include="..\Build\assets\scene\phong.scene" />
-    <None Include="..\Build\assets\shader\lights_normal_phong.frag" />
-    <None Include="..\Build\assets\shader\lights_normal_phong.prog" />
-    <None Include="..\Build\assets\shader\lights_normal_phong.vert" />
-    <None Include="..\Build\assets\shader\normal_phong.frag" />
-    <None Include="..\Build\assets\shader\normal_phong.prog" />
-    <None Include="..\Build\assets\shader\normal_phong.vert" />
-    <None Include="..\Build\assets\shader\texture_phong.frag" />
-    <None Include="..\Build\assets\shader\texture_phong.prog" />
-    <None Include="..\Build\assets\shader\texture_phong.vert" />
+    <None Include="..\Build\assets\shader\lit\texture.frag" />
+    <None Include="..\Build\assets\shader\lit\texture.prog" />
+    <None Include="..\Build\assets\shader\lit\texture.vert" />
+    <None Include="..\Build\assets\shader\lit\texture_normal.frag" />
+    <None Include="..\Build\assets\shader\lit\texture_normal.prog" />
+    <None Include="..\Build\assets\shader\lit\texture_normal.vert" />
+    <None Include="..\Build\assets\shader\unlit\color.frag" />
+    <None Include="..\Build\assets\shader\unlit\color.prog" />
+    <None Include="..\Build\assets\shader\unlit\color.vert" />
+    <None Include="..\Build\assets\shader\unlit\texture.frag" />
+    <None Include="..\Build\assets\shader\unlit\texture.prog" />
+    <None Include="..\Build\assets\shader\unlit\texture.vert" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Engine\Engine.vcxproj">
