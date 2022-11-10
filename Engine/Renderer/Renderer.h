@@ -66,6 +66,7 @@ namespace en
 
 		friend class Text;
 		friend class Texture;
+		friend class GUI;
 
 		SDL_Renderer* _renderer{ nullptr };
 		SDL_Window* _window{ nullptr };

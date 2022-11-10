@@ -1,6 +1,7 @@
 #ifndef _ENGINE_H
 #define _ENGINE_H
 
+/* Birdy */
 #include "Serialization/JSON.h"
 
 #include "Input/InputSystem.h"
@@ -13,6 +14,7 @@
 #include "Renderer/Program.h"
 #include "Renderer/Material.h"
 #include "Renderer/VertexBuffer.h"
+#include "Renderer/GUI.h"
 
 #include "Math/MathUtils.h"
 #include "Math/Random.h"
@@ -51,8 +53,10 @@
 
 #include "Resource/ResourceManager.h"
 
-#include "glm/glm.hpp" // OpenGL Mathematics
+/* OpenGL */
+#include "glm/glm.hpp"
 
+/* Standard Libraries */
 #include <memory>
 #include <vector>
 #include <list>
@@ -66,6 +70,7 @@ namespace en
 	extern ResourceManager __registry;
 	extern PhysicsSystem __physics;
 	extern EventManager __eventmanager;
+	extern GUI __gui;
 
 	class Engine : public Singleton<Engine>
 	{

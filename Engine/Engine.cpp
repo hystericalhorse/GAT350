@@ -9,6 +9,7 @@ namespace en
 		en::__eventmanager.Init();
 
 		en::__renderer.Init();
+		
 		en::__inputsys.Init();
 		en::__audiosys.Init();
 		en::__physics.Init();
@@ -18,6 +19,12 @@ namespace en
 	void Engine::Update()
 	{
 		en::__eventmanager.Update();
+
+		SDL_Event e;
+		while (SDL_PollEvent(&e))
+		{
+			en::__gui.Update(e);
+		}
 
 		en::__audiosys.Update();
 		en::__inputsys.Update();
@@ -29,6 +36,7 @@ namespace en
 	{
 		en::Factory::Instance().Shutdown();
 
+		en::__gui.Shutdown();
 		en::__audiosys.Shutdown();
 		en::__renderer.Shutdown();
 		en::__inputsys.Shutdown();
@@ -63,4 +71,5 @@ namespace en
 	ResourceManager __registry;
 	PhysicsSystem __physics;
 	EventManager __eventmanager;
+	GUI __gui;
 }
