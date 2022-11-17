@@ -25,7 +25,8 @@ namespace en
 		bool Create(std::string name, ...) override;
 		void Update() override;
 		void Shutdown();
-		void Draw(Renderer& renderer);
+		void PreRender(Renderer& renderer);
+		void Render(Renderer& renderer);
 
 		// Inheritance
 		virtual bool Write(const rapidjson::Value& value) const override;

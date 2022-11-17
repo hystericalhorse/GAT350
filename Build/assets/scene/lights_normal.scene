@@ -1,4 +1,6 @@
 {
+  "clear_color": [ 0, 0, 0 ],
+  "ambient_color": [ 0.2, 0.2, 0.2 ],
   "actors": [
     {
       "type": "Actor",
@@ -33,9 +35,9 @@
       "name": "Floor",
       "transform": {
         "position": [
-           0.0,
+          0.0,
           -6.0,
-           0.0
+          0.0
         ],
         "scale": [
           10.0,
@@ -61,14 +63,14 @@
       "name": "Light",
       "transform": {
         "position": [
-           0.0,
-           0.5,
+          0.0,
+          0.5,
           -6.0
         ],
         "rotation": [
-           0.0,
-           180.0,
-           0.0
+          0.0,
+          180.0,
+          0.0
         ]
       },
       "components": [
@@ -95,8 +97,8 @@
       "name": "Camera",
       "transform": {
         "position": [
-           0.0,
-           0.5,
+          0.0,
+          0.5,
           -6.0
         ]
       },

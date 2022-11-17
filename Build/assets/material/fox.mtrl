@@ -1,5 +1,5 @@
 { 
-  "program": "shader/fx/cell.prog",
+  "program": "shader/lit/texture_normal.prog",
   "textures": [
     "texture/red_fox_diffuse.png"
   ],

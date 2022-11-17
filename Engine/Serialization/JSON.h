@@ -7,6 +7,7 @@
 #include <glm/glm.hpp>
 
 #define READ_DATA(value, data) en::json::Get(value, #data, data)
+#define READ_NAME_DATA(value, name, data) en::json::Get(value, name, data)
 
 namespace en
 {

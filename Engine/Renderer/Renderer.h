@@ -58,8 +58,9 @@ namespace en
 		void beginFrame();
 		void beginFrame(const RenderColor& color);
 		void endFrame();
-		void setClearColor(const Color& color) { _clearcolor = color; }
-		Color& getClearColor() { return _clearcolor; }
+
+		glm::vec3 clear_color { 0, 0, 0 };
+		glm::vec3 ambient_color { 0.0, 0.0, 0.0 };
 
 		int get_window_width() { return width; }
 		int get_window_height() { return height; }
@@ -87,7 +88,6 @@ namespace en
 		int height = 0;
 
 		SDL_GLContext _context;
-		Color _clearcolor{0, 0, 0, 255};
 	};
 }
 

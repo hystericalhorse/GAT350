@@ -101,5 +101,11 @@
     <None Include="..\Build\assets\shader\fx\cell.vert">
       <Filter>Resource Files\shader\fx</Filter>
     </None>
+    <None Include="..\Build\assets\scene\red_fox.scene">
+      <Filter>Resource Files\scene</Filter>
+    </None>
+    <None Include="..\Build\assets\material\fox.mtrl">
+      <Filter>Resource Files\material</Filter>
+    </None>
   </ItemGroup>
 </Project>

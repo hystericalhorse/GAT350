@@ -11,8 +11,6 @@ namespace en
 	{
 		material->Bind();
 		material->getProgram()->setUniform("model", (glm::mat4) _owner->_transform);
-		material->getProgram()->setUniform("view", renderer.getView());
-		material->getProgram()->setUniform("projection", renderer.getProjection());
 
 		model->_vertexBuffer.Draw();
 	}

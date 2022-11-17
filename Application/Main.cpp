@@ -16,7 +16,7 @@ int main(int argc, char** argv)
 	en::__gui.Init(en::__renderer);
 
 	// LOAD SCENE
-	auto scene = en::__registry.Get<en::Scene>("scene/lights_normal.scene");
+	auto scene = en::__registry.Get<en::Scene>("scene/red_fox.scene");
 
 	bool quit = false;
 	while (!quit)
@@ -26,9 +26,11 @@ int main(int argc, char** argv)
 
 		if (en::__inputsys.getKeyState(en::key_escape) == en::InputSystem::KeyState::PRESSED) quit = true;
 
+		/*
 		ImGui::Begin("Editor");
 
 		ImGui::End();
+		*/
 
 		auto actor = scene->getActor("Object");
 		if (actor)
@@ -53,7 +55,8 @@ int main(int argc, char** argv)
 		en::__renderer.beginFrame({ 0.0f, 0.0f, 0.0f, 1.0f});
 
 		// DRAW
-		scene->Draw(en::__renderer);
+		scene->PreRender(en::__renderer);
+		scene->Render(en::__renderer);
 		en::__gui.Draw();
 
 		en::__renderer.endFrame();

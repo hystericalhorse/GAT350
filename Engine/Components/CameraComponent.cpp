@@ -47,5 +47,11 @@ namespace en
 		return true;
 	}
 
+	void CameraComponent::setProgram(std::shared_ptr<en::Program> program)
+	{
+		program->Use();
 
+		program->setUniform("view", _view);
+		program->setUniform("projection", _projection);
+	}
 }
