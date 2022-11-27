@@ -10,7 +10,7 @@ namespace en
 		if (_texture) glDeleteTextures(1, &_texture);
 	}
 
-	bool Texture::Create(Renderer& renderer, const std::string& filename)
+	bool Texture::Load(const std::string& filename)
 	{
 		SDL_Surface* _surface = IMG_Load(filename.c_str());
 		if (_surface == nullptr) { LOG(SDL_GetError()); return false; }
@@ -37,11 +37,9 @@ namespace en
 		va_list args;
 		va_start(args, filename);
 
-		Renderer& renderer = va_arg(args, Renderer);
-
 		va_end(args);
 
-		return Texture::Create(renderer, filename);
+		return Texture::Load(filename);
 	}
 
 	en::Vector2 Texture::getSize() const
@@ -69,6 +67,32 @@ namespace en
 		delete[] t;
 
 		SDL_UnlockSurface(surface);
+	}
+
+	GLenum Texture::getInternalFormat(GLuint format)
+	{
+		GLenum internalFormat = SDL_PIXELFORMAT_UNKNOWN;
+		switch (format)
+		{
+		case SDL_PIXELFORMAT_RGB888:
+		case SDL_PIXELFORMAT_RGB24:
+			internalFormat = GL_RGB;
+			break;
+		case SDL_PIXELFORMAT_BGR888:
+		case SDL_PIXELFORMAT_BGR24:
+			internalFormat = GL_BGR;
+			break;
+		case SDL_PIXELFORMAT_RGBA8888:
+		case SDL_PIXELFORMAT_RGBA32:
+			internalFormat = GL_RGBA;
+			break;
+		case SDL_PIXELFORMAT_BGRA8888:
+		case SDL_PIXELFORMAT_BGRA32:
+			internalFormat = GL_BGRA;
+			break;
+		}
+
+		return internalFormat;
 	}
 
 	/** Deprecated ***************************************************************

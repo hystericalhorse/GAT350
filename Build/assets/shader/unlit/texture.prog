@@ -1,0 +1,4 @@
+{
+	"vertex_shader": "shader/unlit/texture.vert",
+	"fragment_shader": "shader/unlit/texture.frag"
+}

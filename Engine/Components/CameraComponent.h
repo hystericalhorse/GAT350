@@ -7,6 +7,7 @@
 
 namespace en
 {
+	class Program;
 
 	class CameraComponent : public Component
 	{
@@ -24,6 +25,8 @@ namespace en
 
 		virtual bool Write(const rapidjson::Value& value) const override;
 		virtual bool Read(const rapidjson::Value& value) override;
+
+		void setProgram(std::shared_ptr<en::Program> program);
 
 	public:
 		Vector2 _viewportsize;

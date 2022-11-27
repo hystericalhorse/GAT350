@@ -1,5 +1,5 @@
 { 
-  "program": "shader/lights_normal_phong.prog",
+  "program": "shader/lit/texture_normal.prog",
   "textures": [
     "texture/stone_diffuse.png",
     "texture/stone_normal.png",
@@ -7,9 +7,9 @@
   ],
     "color":
 	  [
-        1.0,
-        1.0,
-        1.0
+        0.0,
+        0.0,
+        0.0
     ],
   "shininess": 600.0,
   "tiling": [ 1.0, 1.0 ],

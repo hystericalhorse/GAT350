@@ -13,18 +13,24 @@ int main(int argc, char** argv)
 	LOG("Engine Init...");
 
 	en::__renderer.newWindow("Application", 800, 600);
+	en::__gui.Init(en::__renderer);
 
 	// LOAD SCENE
-	auto scene = en::__registry.Get<en::Scene>("scene/red_fox.scene");
+	auto scene = en::__registry.Get<en::Scene>("scene/red_fox_in_cubemap.scene");
 
 	bool quit = false;
 	while (!quit)
 	{
 		en::Engine::Instance().Update();
+		en::__gui.beginFrame(en::__renderer);
 
 		if (en::__inputsys.getKeyState(en::key_escape) == en::InputSystem::KeyState::PRESSED) quit = true;
 
-		scene->Update();
+		/*
+		ImGui::Begin("Editor");
+
+		ImGui::End();
+		*/
 
 		auto actor = scene->getActor("Object");
 		if (actor)
@@ -35,15 +41,26 @@ int main(int argc, char** argv)
 		auto light = scene->getActor("Light");
 		if (light)
 		{
-			//light->_transform.position.x = std::sin(en::__time.time) * 0.1;
+			float speed = 4.0f;
+
+			if (en::__inputsys.getKeyState(en::key_up) == en::InputSystem::KeyState::HELD) light->_transform.position.y += speed * en::__time.ci_time;
+			if (en::__inputsys.getKeyState(en::key_down) == en::InputSystem::KeyState::HELD) light->_transform.position.y -= speed * en::__time.ci_time;
+			if (en::__inputsys.getKeyState(en::key_right) == en::InputSystem::KeyState::HELD) light->_transform.position.x -= speed * en::__time.ci_time;
+			if (en::__inputsys.getKeyState(en::key_left) == en::InputSystem::KeyState::HELD) light->_transform.position.x += speed * en::__time.ci_time;
+			if (en::__inputsys.getKeyState(en::key_w) == en::InputSystem::KeyState::HELD) light->_transform.position.z += speed * speed * en::__time.ci_time;
+			if (en::__inputsys.getKeyState(en::key_s) == en::InputSystem::KeyState::HELD) light->_transform.position.z -= speed * speed * en::__time.ci_time;
 		}
 
+		scene->Update();
 		en::__renderer.beginFrame({ 0.0f, 0.0f, 0.0f, 1.0f});
 
 		// DRAW
-		scene->Draw(en::__renderer);
+		scene->PreRender(en::__renderer);
+		scene->Render(en::__renderer);
+		en::__gui.Draw();
 
 		en::__renderer.endFrame();
+		en::__gui.endFrame();
 	}
 
 	scene->Remove();

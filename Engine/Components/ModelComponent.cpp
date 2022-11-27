@@ -11,9 +11,8 @@ namespace en
 	{
 		material->Bind();
 		material->getProgram()->setUniform("model", (glm::mat4) _owner->_transform);
-		material->getProgram()->setUniform("view", renderer.getView());
-		material->getProgram()->setUniform("projection", renderer.getProjection());
 
+		glDepthMask(depth_mask);
 		model->_vertexBuffer.Draw();
 	}
 
@@ -31,6 +30,8 @@ namespace en
 		std::string material;
 		READ_DATA(value, material);
 		this->material = __registry.Get<en::Material>(material);
+
+		READ_DATA(value, depth_mask);
 
 		return true;
 	}

@@ -1,4 +1,6 @@
 {
+  "clear_color": [ 0, 0, 0 ],
+  "ambient_color": [ 0.2, 0.2, 0.2 ],
   "actors": [
     {
       "type": "Actor",
@@ -24,7 +26,7 @@
         {
           "type": "ModelComponent",
           "model": "model/cube.obj",
-          "material": "material/lights_normal.mtrl"
+          "material": "material/texture_normal.mtrl"
         }
       ]
     },
@@ -33,13 +35,13 @@
       "name": "Floor",
       "transform": {
         "position": [
-           0.0,
-          -1.0,
-           0.0
+          0.0,
+          -6.0,
+          0.0
         ],
         "scale": [
           10.0,
-          0.5,
+          10.0,
           10.0
         ],
         "rotation": [
@@ -61,14 +63,14 @@
       "name": "Light",
       "transform": {
         "position": [
-           0.0,
-           0.0,
-          -2.0
+          0.0,
+          0.5,
+          -6.0
         ],
         "rotation": [
-           15.0,
-           180.0,
-           0.0
+          0.0,
+          180.0,
+          0.0
         ]
       },
       "components": [
@@ -80,9 +82,9 @@
             0.196
           ],
           "ambient": [
-            0.5,
-            0.0,
-            0.0
+            0.1,
+            0.1,
+            0.1
           ],
           "type_name": "spot",
           "cutoff": 60.0,
@@ -96,8 +98,8 @@
       "transform": {
         "position": [
           0.0,
-          0.0,
-          -4.0
+          0.5,
+          -6.0
         ]
       },
       "components": [

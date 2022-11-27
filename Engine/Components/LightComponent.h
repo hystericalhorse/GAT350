@@ -6,6 +6,8 @@
 
 namespace en
 {
+	class Program;
+
 	class LightComponent : public Component
 	{
 	public:
@@ -20,6 +22,8 @@ namespace en
 
 		virtual bool Write(const rapidjson::Value& value) const override;
 		virtual bool Read(const rapidjson::Value& value) override;
+
+		void setProgram(std::shared_ptr<en::Program> program, int index);
 
 	public:
 		Type type = Type::Point;

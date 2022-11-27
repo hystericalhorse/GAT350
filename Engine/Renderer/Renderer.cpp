@@ -58,7 +58,7 @@ namespace en
 
 	void Renderer::beginFrame(const RenderColor& color)
 	{
-		glClearColor(color.r, color.g, color.b, color.a);
+		glClearColor(clear_color.r, clear_color.g, clear_color.g, 1.0);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	}
 

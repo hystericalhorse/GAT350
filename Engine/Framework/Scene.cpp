@@ -53,7 +53,50 @@ namespace en
 		_actors.clear();
 	}
 
-	void Scene::Draw(Renderer& renderer)
+	void Scene::PreRender(Renderer& renderer)
+	{
+		CameraComponent* camera = nullptr;
+		for (auto& actor : _actors)
+		{
+			if (!actor->isActive()) continue;
+
+			auto component = actor->getComponent<en::CameraComponent>();
+			if (component)
+			{
+				camera = component;
+				break;
+			}
+		}
+
+		std::vector<LightComponent*> lights;
+		for (auto& actor : _actors)
+		{
+			if (!actor->isActive()) continue;
+
+			auto component = actor->getComponent<en::LightComponent>();
+			if (component)
+			{
+				lights.push_back(component);
+			}
+		}
+
+		auto programs = __registry.Get<en::Program>();
+		for (auto& program : programs)
+		{
+			camera->setProgram(program);
+
+			int index = 0;
+			for (auto light : lights)
+			{
+				light->setProgram(program, index++);
+			}
+
+			program->setUniform("light_count", index);
+			program->setUniform("ambient_color", __renderer.ambient_color);
+		}
+	}
+
+	void Scene::Render(Renderer& renderer)
 	{
 		auto camera = getActor("Camera");
 		if (camera)
@@ -77,6 +120,9 @@ namespace en
 
 	bool Scene::Read(const rapidjson::Value& value)
 	{
+		READ_NAME_DATA(value, "clear_color", __renderer.clear_color);
+		READ_NAME_DATA(value, "ambient_color", __renderer.ambient_color);
+
 		if (!value.HasMember("actors") || !value["actors"].IsArray())
 		{
 			LOG("ERROR: Could not find 'actors' component in level file.");

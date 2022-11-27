@@ -18,6 +18,16 @@ namespace en
 
 		_program = en::__registry.Get<en::Program>(program);
 
+		std::string cubemap;
+		READ_DATA(document, cubemap);
+		if (!cubemap.empty())
+		{
+			std::string cubemap_extension;
+			READ_DATA(document, cubemap_extension);
+
+			_textures.push_back(en::__registry.Get<en::CubemapTexture>(cubemap, cubemap_extension));
+		}
+
 		std::vector<std::string> textures;
 		READ_DATA(document, textures);
 		for (auto& texture : textures)
