@@ -8,13 +8,14 @@ namespace en
 {
 	struct Transform : public Serializable
 	{
-		glm::vec3 position{ 0.0f, 0.0f, 0.0f };
-		glm::vec3 scale{ 1.0f, 1.0f, 1.0f };
-		glm::vec3 rotation = { 0.0f, 0.0f, 0.0f };
+		glm::vec3 position{ 0.0f };
+		glm::vec3 scale{ 1.0f };
+		glm::quat rotation;
+
 		glm::mat4 matrix { 1.0f };
 
 		Transform() = default;
-		Transform(const glm::vec3& pos, const glm::vec3 rot, const glm::vec3& scale = { 1.0f, 1.0f, 1.0f}) :
+		Transform(const glm::vec3& pos, const glm::quat& rot, const glm::vec3& scale = { 1.0f, 1.0f, 1.0f}) :
 			position{pos}, rotation{rot}, scale{scale}
 		{}
 
@@ -28,7 +29,10 @@ namespace en
 		{
 			READ_DATA(value, position);
 			READ_DATA(value, scale);
-			READ_DATA(value, rotation);
+
+			glm::vec3 euler;
+			READ_NAME_DATA(value, "rotation", euler);
+			rotation = en::EulerToQuaternion(euler);
 
 			return true;
 		}
@@ -60,7 +64,7 @@ namespace en
 		operator glm::mat4 () const
 		{
 			glm::mat4 mxS = glm::scale(scale);
-			glm::mat4 mxR = glm::eulerAngleXYZ(glm::radians(rotation.x), glm::radians(rotation.y), glm::radians(rotation.z));
+			glm::mat4 mxR = glm::mat4_cast(rotation);
 			glm::mat4 mxT = glm::translate(position);
 
 			return { mxT * mxR * mxS };

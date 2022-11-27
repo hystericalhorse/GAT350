@@ -54,7 +54,11 @@ namespace en
 		// get present mouse state
 		int x, y;
 		uint32_t buttons = SDL_GetMouseState(&x, &y);
-		_mousepos = en::Vector2(x, y);
+
+		_mousepos = glm::vec2((float) x, (float) y);
+		_mouserelative = _mousepos - _prev_mousepos;
+		_prev_mousepos = _mousepos;
+
 		mousebtnstate[0] = buttons & SDL_BUTTON_LMASK;
 		mousebtnstate[1] = buttons & SDL_BUTTON_MMASK;
 		mousebtnstate[2] = buttons & SDL_BUTTON_RMASK;

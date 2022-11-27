@@ -1,6 +1,7 @@
 #ifndef _INPUT_SYSTEM_H
 #define _INPUT_SYSTEM_H
 #include "Math/Vector2.h"
+#include "Math/MathUtils.h"
 #include <cstdint>
 #include <vector>
 #include <array>
@@ -33,7 +34,10 @@ namespace en
 		bool getKeyDown(uint32_t key) { return keyboardstate[key]; }
 		bool getPrevKeyDown(uint32_t key) { return prev_keyboardstate[key]; }
 
-		const Vector2& getMousePos() const { return _mousepos; }
+		const glm::vec2& getMousePos() const { return _mousepos; }
+		const glm::vec2& getMouseRelative() const { return _mouserelative; }
+		const glm::vec2& getMousePrev() const { return _prev_mousepos; }
+
 		KeyState getButtonState(uint32_t button);
 		bool getButtonDown(uint32_t button) { return mousebtnstate[button]; }
 		bool getPrevButtonDown(uint32_t button) { return prev_mousebtnstate[button]; }
@@ -51,7 +55,10 @@ namespace en
 		std::vector<uint8_t> prev_keyboardstate
 		{};
 
-		Vector2 _mousepos {0, 0};
+		glm::vec2 _mousepos {0, 0};
+		glm::vec2 _prev_mousepos;
+		glm::vec2 _mouserelative;
+
 		std::array<uint8_t, 3> mousebtnstate{};
 		std::array<uint8_t, 3> prev_mousebtnstate{};
 	};

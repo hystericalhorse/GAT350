@@ -115,9 +115,14 @@
       "name": "Camera",
       "transform": {
         "position": [
-           0.0,
-           0.5,
-          -4.0
+          0.0,
+          0.5,
+          4.0
+        ],
+        "rotation": [
+          0.0,
+          180.0,
+          0.0
         ]
       },
       "components": [
@@ -129,7 +134,8 @@
         },
         {
           "type": "CameraController",
-          "speed": 4.0
+          "speed": 4.0,
+          "sensitivity": 0.5
         }
       ]
     }

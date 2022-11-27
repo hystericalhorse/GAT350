@@ -18,6 +18,8 @@ int main(int argc, char** argv)
 	// LOAD SCENE
 	auto scene = en::__registry.Get<en::Scene>("scene/red_fox_in_cubemap.scene");
 
+	glm::vec3 rot{ 0, 0, 0 };
+
 	bool quit = false;
 	while (!quit)
 	{
@@ -26,16 +28,17 @@ int main(int argc, char** argv)
 
 		if (en::__inputsys.getKeyState(en::key_escape) == en::InputSystem::KeyState::PRESSED) quit = true;
 
-		/*
 		ImGui::Begin("Editor");
-
+		ImGui::SliderFloat3("Rotation", &rot[0], -360.0f, 360.0f);
 		ImGui::End();
-		*/
 
 		auto actor = scene->getActor("Object");
 		if (actor)
 		{
-			//actor->_transform.rotation.y -= en::__time.ci_time * 15.0f;
+			if (en::__inputsys.getKeyState(en::key_a) == en::InputSystem::KeyState::HELD) ;
+			if (en::__inputsys.getKeyState(en::key_d) == en::InputSystem::KeyState::HELD) ;
+
+			actor->_transform.rotation = en::EulerToQuaternion(rot);
 		}
 
 		auto light = scene->getActor("Light");

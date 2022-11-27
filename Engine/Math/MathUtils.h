@@ -32,6 +32,9 @@ namespace en
 		return radians * (180 / pi);
 	}
 
+	glm::vec3 QuaternionToEuler(glm::quat q);
+	glm::quat EulerToQuaternion(glm::vec3 euler);
+
 	float abs(float i);
 
 	template <typename T>
