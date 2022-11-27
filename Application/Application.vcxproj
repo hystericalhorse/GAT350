@@ -140,15 +140,17 @@
   <ItemGroup>
     <None Include="..\Build\assets\material\floor.mtrl" />
     <None Include="..\Build\assets\material\fox.mtrl" />
-    <None Include="..\Build\assets\material\multi.mtrl" />
-    <None Include="..\Build\assets\material\normal.mtrl" />
-    <None Include="..\Build\assets\material\phong.mtrl" />
+    <None Include="..\Build\assets\material\skybox.mtrl" />
     <None Include="..\Build\assets\material\texture_normal.mtrl" />
     <None Include="..\Build\assets\scene\lights_normal.scene" />
     <None Include="..\Build\assets\scene\red_fox.scene" />
+    <None Include="..\Build\assets\scene\red_fox_in_cubemap.scene" />
     <None Include="..\Build\assets\shader\fx\cell.frag" />
     <None Include="..\Build\assets\shader\fx\cell.prog" />
     <None Include="..\Build\assets\shader\fx\cell.vert" />
+    <None Include="..\Build\assets\shader\fx\skybox.frag" />
+    <None Include="..\Build\assets\shader\fx\skybox.prog" />
+    <None Include="..\Build\assets\shader\fx\skybox.vert" />
     <None Include="..\Build\assets\shader\lit\texture.frag" />
     <None Include="..\Build\assets\shader\lit\texture.prog" />
     <None Include="..\Build\assets\shader\lit\texture.vert" />

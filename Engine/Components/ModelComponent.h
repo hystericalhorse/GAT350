@@ -27,6 +27,8 @@ namespace en
 		std::shared_ptr<en::Model> model;
 		std::shared_ptr<en::Material> material;
 
+		bool depth_mask = true;
+
 	};
 }
 

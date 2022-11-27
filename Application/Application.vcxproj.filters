@@ -38,15 +38,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\Build\assets\material\phong.mtrl">
-      <Filter>Resource Files\material</Filter>
-    </None>
-    <None Include="..\Build\assets\material\multi.mtrl">
-      <Filter>Resource Files\material</Filter>
-    </None>
-    <None Include="..\Build\assets\material\normal.mtrl">
-      <Filter>Resource Files\material</Filter>
-    </None>
     <None Include="..\Build\assets\scene\lights_normal.scene">
       <Filter>Resource Files\scene</Filter>
     </None>
@@ -106,6 +97,21 @@
     </None>
     <None Include="..\Build\assets\material\fox.mtrl">
       <Filter>Resource Files\material</Filter>
+    </None>
+    <None Include="..\Build\assets\scene\red_fox_in_cubemap.scene">
+      <Filter>Resource Files\scene</Filter>
+    </None>
+    <None Include="..\Build\assets\material\skybox.mtrl">
+      <Filter>Resource Files\material</Filter>
+    </None>
+    <None Include="..\Build\assets\shader\fx\skybox.frag">
+      <Filter>Resource Files\shader\fx</Filter>
+    </None>
+    <None Include="..\Build\assets\shader\fx\skybox.prog">
+      <Filter>Resource Files\shader\fx</Filter>
+    </None>
+    <None Include="..\Build\assets\shader\fx\skybox.vert">
+      <Filter>Resource Files\shader\fx</Filter>
     </None>
   </ItemGroup>
 </Project>

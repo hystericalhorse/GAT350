@@ -1,0 +1,11 @@
+{
+  "program": "shader/fx/skybox.prog",
+  "cubemap": "texture/lycksele3/",
+  "cubemap_extension": ".jpg",
+  "color": [
+    1.0,
+    1.0,
+    1.0
+  ],
+  "shininess": 32.0
+}

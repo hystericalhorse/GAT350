@@ -15,6 +15,7 @@
 #include "Renderer/Material.h"
 #include "Renderer/VertexBuffer.h"
 #include "Renderer/GUI.h"
+#include "Renderer/CubemapTexture.h"
 
 #include "Math/MathUtils.h"
 #include "Math/Random.h"
