@@ -116,5 +116,17 @@
     <None Include="..\Build\assets\material\reflection.mtrl">
       <Filter>Resource Files\material</Filter>
     </None>
+    <None Include="..\Build\assets\shader\fx\refract.frag">
+      <Filter>Resource Files\shader\fx</Filter>
+    </None>
+    <None Include="..\Build\assets\shader\fx\refract.prog">
+      <Filter>Resource Files\shader\fx</Filter>
+    </None>
+    <None Include="..\Build\assets\shader\fx\refract.vert">
+      <Filter>Resource Files\shader\fx</Filter>
+    </None>
+    <None Include="..\Build\assets\material\refraction.mtrl">
+      <Filter>Resource Files\material</Filter>
+    </None>
   </ItemGroup>
 </Project>

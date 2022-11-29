@@ -38,7 +38,7 @@
         {
           "type": "ModelComponent",
           "model": "model/red_fox_lowpoly.glb",
-          "material": "material/reflection.mtrl"
+          "material": "material/refraction.mtrl"
         }
       ]
     },

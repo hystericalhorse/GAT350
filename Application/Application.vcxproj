@@ -141,6 +141,7 @@
     <None Include="..\Build\assets\material\floor.mtrl" />
     <None Include="..\Build\assets\material\fox.mtrl" />
     <None Include="..\Build\assets\material\reflection.mtrl" />
+    <None Include="..\Build\assets\material\refraction.mtrl" />
     <None Include="..\Build\assets\material\skybox.mtrl" />
     <None Include="..\Build\assets\material\texture_normal.mtrl" />
     <None Include="..\Build\assets\scene\lights_normal.scene" />
@@ -149,6 +150,9 @@
     <None Include="..\Build\assets\shader\fx\reflect.frag" />
     <None Include="..\Build\assets\shader\fx\reflect.prog" />
     <None Include="..\Build\assets\shader\fx\reflect.vert" />
+    <None Include="..\Build\assets\shader\fx\refract.frag" />
+    <None Include="..\Build\assets\shader\fx\refract.prog" />
+    <None Include="..\Build\assets\shader\fx\refract.vert" />
     <None Include="..\Build\assets\shader\fx\skybox.frag" />
     <None Include="..\Build\assets\shader\fx\skybox.prog" />
     <None Include="..\Build\assets\shader\fx\skybox.vert" />
