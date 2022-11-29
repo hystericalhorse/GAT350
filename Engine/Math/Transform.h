@@ -37,9 +37,9 @@ namespace en
 			return true;
 		}
 
-		glm::vec3 right() { return ((glm::mat4)(*this))[0]; }
-		glm::vec3 up() { return ((glm::mat4)(*this))[1]; }
-		glm::vec3 forward() { return ((glm::mat4)(*this))[2]; }
+		glm::vec3 right() { return rotation * glm::vec3{1, 0, 0}; }
+		glm::vec3 up() { return rotation * glm::vec3{0, 1, 0}; }
+		glm::vec3 forward() { return rotation * glm::vec3{0, 0, 1}; }
 
 		/******************* Legacy ******************
 		operator Matrix2x2 () const

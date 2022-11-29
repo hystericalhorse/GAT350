@@ -54,10 +54,13 @@ namespace en
 
 		***********************************************************************************************************************************/
 
-		void newWindow(const char* title, int width, int height, bool fullscreen = false);
+		void newWindow(const std::string& title, int width, int height, bool fullscreen = false);
 		void beginFrame();
 		void beginFrame(const RenderColor& color);
 		void endFrame();
+
+		void setViewport(int x, int y, int width, int height);
+		void restoreViewport();
 
 		glm::vec3 clear_color { 0, 0, 0 };
 		glm::vec3 ambient_color { 0.0, 0.0, 0.0 };
@@ -83,9 +86,11 @@ namespace en
 		void setProjection(const glm::mat4& projection) { _projection = projection; }
 		glm::mat4& getProjection() { return _projection; }
 
-	private:
 		int width = 0;
 		int height = 0;
+
+		bool fullscreen = false;
+	private:
 
 		SDL_GLContext _context;
 	};

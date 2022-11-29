@@ -83,15 +83,6 @@
     <None Include="..\Build\assets\shader\unlit\texture.prog">
       <Filter>Resource Files\shader\unlit</Filter>
     </None>
-    <None Include="..\Build\assets\shader\fx\cell.frag">
-      <Filter>Resource Files\shader\fx</Filter>
-    </None>
-    <None Include="..\Build\assets\shader\fx\cell.prog">
-      <Filter>Resource Files\shader\fx</Filter>
-    </None>
-    <None Include="..\Build\assets\shader\fx\cell.vert">
-      <Filter>Resource Files\shader\fx</Filter>
-    </None>
     <None Include="..\Build\assets\scene\red_fox.scene">
       <Filter>Resource Files\scene</Filter>
     </None>
@@ -112,6 +103,18 @@
     </None>
     <None Include="..\Build\assets\shader\fx\skybox.vert">
       <Filter>Resource Files\shader\fx</Filter>
+    </None>
+    <None Include="..\Build\assets\shader\fx\reflect.frag">
+      <Filter>Resource Files\shader\fx</Filter>
+    </None>
+    <None Include="..\Build\assets\shader\fx\reflect.prog">
+      <Filter>Resource Files\shader\fx</Filter>
+    </None>
+    <None Include="..\Build\assets\shader\fx\reflect.vert">
+      <Filter>Resource Files\shader\fx</Filter>
+    </None>
+    <None Include="..\Build\assets\material\reflection.mtrl">
+      <Filter>Resource Files\material</Filter>
     </None>
   </ItemGroup>
 </Project>

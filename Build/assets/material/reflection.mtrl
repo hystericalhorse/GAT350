@@ -1,0 +1,11 @@
+{
+  "program": "shader/fx/reflect.prog",
+  "cubemap": "texture/lycksele3/",
+  "cubemap_extension": ".jpg",
+  "color": [
+    1.0,
+    1.0,
+    1.0
+  ],
+  "shininess": 256.0
+}

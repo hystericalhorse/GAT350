@@ -38,7 +38,7 @@
         {
           "type": "ModelComponent",
           "model": "model/red_fox_lowpoly.glb",
-          "material": "material/fox.mtrl"
+          "material": "material/reflection.mtrl"
         }
       ]
     },
@@ -47,7 +47,7 @@
       "name": "Light1",
       "transform": {
         "position": [
-          1.0,
+           1.0,
           -1.0,
           -1.0
         ],

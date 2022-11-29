@@ -26,13 +26,14 @@ namespace en
 		IMG_Quit();
 	}
 
-	void Renderer::newWindow(const char* title, int width, int height, bool fullscreen)
+	void Renderer::newWindow(const std::string& title, int width, int height, bool fullscreen)
 	{
 		this->width = width;
 		this->height = height;
+		this->fullscreen = fullscreen;
 		int flags = (fullscreen) ? SDL_WINDOW_FULLSCREEN : (SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);
 
-		_window = SDL_CreateWindow(title, 100, 100, width, height, SDL_WINDOW_OPENGL | flags);
+		_window = SDL_CreateWindow(title.c_str(), 100, 100, width, height, SDL_WINDOW_OPENGL | flags);
 
 		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 4);
 		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
@@ -65,6 +66,16 @@ namespace en
 	void Renderer::endFrame()
 	{
 		SDL_GL_SwapWindow(_window);
+	}
+
+	void Renderer::setViewport(int x, int y, int width, int height)
+	{
+		glViewport(x, y, width, height);
+	}
+
+	void Renderer::restoreViewport()
+	{
+		glViewport(0, 0, width, height);
 	}
 
 	/********* DEPRECATED **************************************************************

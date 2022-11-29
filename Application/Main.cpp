@@ -16,7 +16,7 @@ int main(int argc, char** argv)
 	en::__gui.Init(en::__renderer);
 
 	// LOAD SCENE
-	auto scene = en::__registry.Get<en::Scene>("scene/lights_normal.scene");
+	auto scene = en::__registry.Get<en::Scene>("scene/red_fox_in_cubemap.scene");
 
 	glm::vec3 rot{ 0, 0, 0 };
 
@@ -45,7 +45,7 @@ int main(int argc, char** argv)
 		auto camera = scene->getActor("Camera");
 		if (light && camera)
 		{
-			//light->_transform.position	= camera->_transform.position;
+			light->_transform.position	= camera->_transform.position;
 		}
 
 		scene->Update();
