@@ -1,5 +1,5 @@
 {
-  "clear_color": [ 0, 0, 0 ],
+  "clear_color": [ 0.0, 0.0, 0.0 ],
   "ambient_color": [ 0.2, 0.2, 0.2 ],
   "actors": [
     {
@@ -86,7 +86,7 @@
             0.1,
             0.1
           ],
-          "type_name": "spot",
+          "type_name": "point",
           "cutoff": 60.0,
           "exponent": 45.0
         }
@@ -99,7 +99,7 @@
         "position": [
           0.0,
           0.5,
-          -6.0
+          6.0
         ]
       },
       "components": [

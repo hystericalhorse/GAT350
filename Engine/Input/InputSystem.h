@@ -70,6 +70,9 @@ namespace en
 	extern const uint32_t key_right;
 	extern const uint32_t key_escape;
 
+	extern const uint32_t key_lctrl;
+	extern const uint32_t key_lshift;
+
 	extern const uint32_t key_w;
 	extern const uint32_t key_a;
 	extern const uint32_t key_s;

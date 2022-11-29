@@ -16,7 +16,7 @@ int main(int argc, char** argv)
 	en::__gui.Init(en::__renderer);
 
 	// LOAD SCENE
-	auto scene = en::__registry.Get<en::Scene>("scene/red_fox_in_cubemap.scene");
+	auto scene = en::__registry.Get<en::Scene>("scene/lights_normal.scene");
 
 	glm::vec3 rot{ 0, 0, 0 };
 
@@ -42,16 +42,10 @@ int main(int argc, char** argv)
 		}
 
 		auto light = scene->getActor("Light");
-		if (light)
+		auto camera = scene->getActor("Camera");
+		if (light && camera)
 		{
-			float speed = 4.0f;
-
-			if (en::__inputsys.getKeyState(en::key_up) == en::InputSystem::KeyState::HELD) light->_transform.position.y += speed * en::__time.ci_time;
-			if (en::__inputsys.getKeyState(en::key_down) == en::InputSystem::KeyState::HELD) light->_transform.position.y -= speed * en::__time.ci_time;
-			if (en::__inputsys.getKeyState(en::key_right) == en::InputSystem::KeyState::HELD) light->_transform.position.x -= speed * en::__time.ci_time;
-			if (en::__inputsys.getKeyState(en::key_left) == en::InputSystem::KeyState::HELD) light->_transform.position.x += speed * en::__time.ci_time;
-			if (en::__inputsys.getKeyState(en::key_w) == en::InputSystem::KeyState::HELD) light->_transform.position.z += speed * speed * en::__time.ci_time;
-			if (en::__inputsys.getKeyState(en::key_s) == en::InputSystem::KeyState::HELD) light->_transform.position.z -= speed * speed * en::__time.ci_time;
+			//light->_transform.position	= camera->_transform.position;
 		}
 
 		scene->Update();

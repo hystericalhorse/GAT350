@@ -19,30 +19,42 @@ namespace en
 
 			_yaw += axis.x;
 			_pitch -= axis.y;
-			_pitch = glm::clamp(_pitch, -180.0f, 180.0f);
+			//std::cout << _pitch << std::endl;
+			_pitch = glm::clamp(_pitch, -89.0f, 89.0f);
 		}
 
-		glm::quat qpitch = glm::angleAxis(glm::radians(_pitch), glm::vec3{ 1, 0, 0 });
-		glm::quat qyaw = glm::angleAxis(glm::radians(_yaw), glm::vec3{ 0, 1, 0 });
+		glm::vec3 forward;
+		forward.x = cos(glm::radians(_yaw - 90.0f)) * cos(glm::radians(_pitch));
+		forward.y = sin(glm::radians(_pitch));
+		forward.z = sin(glm::radians(_yaw - 90.0f)) * cos(glm::radians(_pitch));
+		forward = glm::normalize(forward);
 
-		glm::quat q = qpitch * qyaw;
-		glm::vec3 forward = q * glm::vec3{ 0, 0, 1 };
-
-		glm::mat4 view = glm::lookAt(glm::vec3{ 0.0f }, forward, glm::vec3{ 0, 1, 0 });
-		_owner->_transform.rotation = glm::quat_cast(view);
+		glm::mat4 view = glm::lookAt(glm::vec3{ 0.0f }, -forward, glm::vec3{ 0, 1, 0 });
+		_owner->_transform.rotation = glm::conjugate(glm::quat_cast(view));
 
 		glm::vec3 direction{ 0 };
 
 		if (__inputsys.getKeyState(key_a) == InputSystem::KeyState::HELD)		direction.x += 1;
 		if (__inputsys.getKeyState(key_d) == InputSystem::KeyState::HELD)		direction.x -= 1;
-		if (__inputsys.getKeyState(key_up) == InputSystem::KeyState::HELD)		direction.y += 1;
-		if (__inputsys.getKeyState(key_down) == InputSystem::KeyState::HELD)	direction.y -= 1;
+
+		if (__inputsys.getKeyState(key_space) == InputSystem::KeyState::HELD)	direction.y += 1;
+		if (__inputsys.getKeyState(key_lctrl) == InputSystem::KeyState::HELD)	direction.y -= 1;
+
 		if (__inputsys.getKeyState(key_w) == InputSystem::KeyState::HELD)		direction.z += 1;
 		if (__inputsys.getKeyState(key_s) == InputSystem::KeyState::HELD)		direction.z -= 1;
 
-		// convert world direction space to camera direction space
 		direction = _owner->_transform.rotation * direction;
-		_owner->_transform.position += direction * (speed * __time.ci_time);
+
+		if (en::__inputsys.getKeyState(en::key_lshift) == en::InputSystem::KeyState::HELD)
+		{
+			_owner->_transform.position += direction * (doublespeed * __time.ci_time);
+		}
+		else
+		{
+			_owner->_transform.position += direction * (speed * __time.ci_time);
+		}
+
+		
 
 		/*
 		if (en::__inputsys.getKeyState(en::key_up) == en::InputSystem::KeyState::HELD) _owner->_transform.position.y += speed * en::__time.ci_time;
@@ -63,6 +75,7 @@ namespace en
 	bool CameraController::Read(const rapidjson::Value& value)
 	{
 		READ_DATA(value, speed);
+		doublespeed = speed * 2;
 		READ_DATA(value, sensitivity);
 
 		return true;
